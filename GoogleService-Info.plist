@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>6764544011-c5r6s7bh6rb3du7s86pd0ogqc92m9nce.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.6764544011-c5r6s7bh6rb3du7s86pd0ogqc92m9nce</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAwPdSBZScjm17E13yeC-e2UwaZZGNGCRk</string>
+	<key>GCM_SENDER_ID</key>
+	<string>6764544011</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.mie.tech.Nutritious</string>
+	<key>PROJECT_ID</key>
+	<string>nutritious-902ba</string>
+	<key>STORAGE_BUCKET</key>
+	<string>nutritious-902ba.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:6764544011:ios:fd29cff40c30623938c70e</string>
+	<key>DATABASE_URL</key>
+	<string>https://nutritious-902ba.firebaseio.com</string>
+</dict>
+</plist>
