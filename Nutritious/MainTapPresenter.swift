@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+import UIKit
 protocol MainTapView {
     
     func handleError(title: String, content: String)
@@ -16,6 +16,11 @@ protocol MainTapView {
 
 protocol MainTapPresenter {
     func viewDidLoad()
+    func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    func presentHome()
+    func presentCategory()
+    func presentHistory()
+    func presentProfile()
 }
 
 class MainTapPresenterImplementation: MainTapPresenter {
@@ -31,11 +36,27 @@ class MainTapPresenterImplementation: MainTapPresenter {
         self.router = router
     }
     func viewDidLoad(){
-        
+        self.presentHome()
     }
     
-    func presentExample(leaguesId: Int){
-//        self.router.presentLeaguesDetail(leaguesId: leaguesId)
+    func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        self.router.prepare(for: segue, sender: sender)
+    }
+    
+    func presentHome() {
+        self.router.presentHome()
+    }
+    
+    func presentCategory() {
+        self.router.presentCategory()
+    }
+    
+    func presentHistory() {
+        self.router.presentHistory()
+    }
+    
+    func presentProfile() {
+        self.router.presentProfile()
     }
 }
 

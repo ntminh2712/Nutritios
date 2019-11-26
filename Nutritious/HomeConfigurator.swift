@@ -18,8 +18,9 @@ class HomeConfigurator: HomeConfigurable {
     func configure(viewController: HomeViewController) {
     
         let router = HomeRouterImplemetation(viewController: viewController)
-//        let exploreGateway = ApiExploreGatewayImplementation()
-        let presenter = HomePresenterImplementation(view:viewController,router: router)
+
+        let categoryGateway = ApiCategoryGatewayImplementation()
+        let presenter = HomePresenterImplementation(view:viewController,router: router, categoryGateway: categoryGateway)
         
         viewController.presenter = presenter
 

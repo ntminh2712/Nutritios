@@ -12,5 +12,6 @@ import Foundation
 enum TSAPI
 {
     case login(String?,String?)
+    case getCategory
 }
  

@@ -15,12 +15,20 @@ class MainTapViewController: BaseViewController, MainTapView {
     // MARK: Injections
     var presenter: MainTapPresenter!
     var configurator: MainTapConfigurable = MainTapConfigurator()
-
+    var contain: MainTapSegmentController!
     // MARK: View lifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         configurator.configure(viewController: self)
         presenter.viewDidLoad()
+        
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "contain"
+        {
+            self.configurator.configure(viewController: self)
+        }
+        presenter.prepare(for: segue, sender: sender)
         
     }
     func handleError(title: String, content: String) {

@@ -22,8 +22,8 @@ extension TSAPI:TargetType
         switch self {
         case .login:
             return "/api/auth/signin"
-        default:
-            return ""
+        case .getCategory:
+            return "/api/category"
         }
     }
     
@@ -39,7 +39,7 @@ extension TSAPI:TargetType
     
     public var parameterEncoding: ParameterEncoding {
         switch self {
-        case .login:
+        case .login, .getCategory:
             return URLEncoding.default
         default:
             return JSONEncoding.default
@@ -76,19 +76,19 @@ extension TSAPI:TargetType
     }
     
     var headers: [String : String]? {
-//        let token = "h8T0DF9yqGKqEooDaoCkAaBL_WVjhm36"
+        let token = "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI2IiwiaWF0IjoxNTc0NzUzMTk2LCJleHAiOjE1NzUzNTc5OTZ9.amBTcwUiGG0hQrBJGj8zpcwY-CZuKJryVV1-_bZynom6AgxUDU9auPE6YD8ZVRsb3Ko1HAivI2xpT0G-uvmllQ"
         switch self {
-//        case  .getNews, .getListGroup, .getWallpaper, .getMatches, .getLiveScore:
-//            var header: [String:String]?{
-//                var header: [String:String] = [:]
-//                header["Authorization"] = "Bearer \(token)"
-//                return header
-//            }
-//            return header
+        case  .getCategory:
+            var header: [String:String]?{
+                var header: [String:String] = [:]
+                header["Authorization"] = token
+                header["Content-Type"] = "application/x-www-form-urlencoded"
+                return header
+            }
+            return header
         default:
             return [:]
         }
-        return [:]
     }
     
     

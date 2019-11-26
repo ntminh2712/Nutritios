@@ -9,24 +9,47 @@
 import UIKit
 
 protocol MainTapViewRouter{
-//    func presentExample(leaguesId:Int)
+    func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    func presentHome()
+    func presentCategory()
+    func presentHistory()
+    func presentProfile()
 }
 
 class MainTapRouterImplemetation : MainTapViewRouter{
     
+    
+    
     // MARK: Injections
-    weak var viewController: UIViewController?
+    weak var viewController: MainTapViewController?
     
     // MARK: LifeCycle
     required init(viewController: UIViewController) {
-        self.viewController = viewController
+        self.viewController = viewController as! MainTapViewController
     }
-//    func presentExample(leaguesId:Int){
-//        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-//        let newExploreController = storyBoard.instantiateViewController(withIdentifier: "leaguesDetailController") as! LeaguesDetailController
-//        newExploreController.leaguesId = leaguesId
-//        viewController!.navigationController?.pushViewController(newExploreController, animated: true)
-//    }
+    
+    func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "contain"
+        {
+            self.viewController?.contain = segue.destination as? MainTapSegmentController
+        }
+    }
+    
+    func presentHome() {
+        self.viewController?.contain.segueIdentifierReceivedFromParent(SegueIdentifier.HomeView)
+    }
+    
+    func presentCategory() {
+        self.viewController?.contain.segueIdentifierReceivedFromParent(SegueIdentifier.CategoryView)
+    }
+    
+    func presentHistory() {
+        self.viewController?.contain.segueIdentifierReceivedFromParent(SegueIdentifier.HistoryView)
+    }
+    
+    func presentProfile() {
+        self.viewController?.contain.segueIdentifierReceivedFromParent(SegueIdentifier.ProfileView)
+    }
 }
 
 

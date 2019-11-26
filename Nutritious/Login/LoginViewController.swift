@@ -36,7 +36,7 @@ class LoginViewController: BaseViewController, LoginView {
     }
     
     @IBAction func login(_ sender: Any) {
-        
+        presenter.validateAndLogin(username: tfUsername.text!, password: tfPassword.text!)
     }
 }
 

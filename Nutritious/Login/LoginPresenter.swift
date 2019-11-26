@@ -16,6 +16,7 @@ protocol LoginView {
 
 protocol LoginPresenter {
     func viewDidLoad()
+    func validateAndLogin(username:String, password:String)
 }
 
 class LoginPresenterImplementation: LoginPresenter {
@@ -25,13 +26,22 @@ class LoginPresenterImplementation: LoginPresenter {
     var router: LoginViewRouter
     var loginGateway: LoginGateway?
     //MARK: LifeCycle
-
+    
     init(view: LoginView, router: LoginViewRouter,loginGateway: LoginGateway) {
         self.view = view
         self.router = router
         self.loginGateway = loginGateway
     }
     func viewDidLoad(){
+        
+    }
+    
+    func validateAndLogin(username:String, password:String){
+        if username == "" || password == ""{
+            
+        }else {
+            login(username: username, password: password)
+        }
         
     }
     

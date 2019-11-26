@@ -11,32 +11,81 @@ import Foundation
 protocol HomeView {
     
     func handleError(title: String, content: String)
-    
+    func reloadTableView()
 }
 
 protocol HomePresenter {
     func viewDidLoad()
+    var numberOfList:Int {get}
+    func getListFood(index:Int) -> [FoodDetailEntity]
+    func getNumberOfListFood(index:Int) -> Int
+    func getDataOfFood(index:Int, row:Int) -> FoodDetailEntity
+    func getNameCategory(index:Int) -> String
 }
 
 class HomePresenterImplementation: HomePresenter {
     
+    
+    
+    var listCategory:[CategoryDetailEntity] = []
+    
+    
     //MARK: Injections
     private var view: HomeView?
     var router: HomeViewRouter
-//    var Gateway: Gateway?
+    var categoryGateway:CategoryGateway?
     //MARK: LifeCycle
-
-    init(view: HomeView, router: HomeViewRouter) {
-        self.view = view
-        self.router = router
+    var numberOfList: Int{
+        return listCategory.count
     }
-    func viewDidLoad(){
+    
+    func getListFood(index: Int) -> [FoodDetailEntity] {
+        return listCategory[index].foods
+    }
+    
+    func getNumberOfListFood(index: Int) -> Int {
+        if listCategory.count != 0 {
+            return listCategory[index].foods.count
+        }
+        return 0
         
     }
     
-    func presentExample(leaguesId: Int){
-//        self.router.presentLeaguesDetail(leaguesId: leaguesId)
+    func getDataOfFood(index: Int, row: Int) -> FoodDetailEntity {
+        return listCategory[index].foods[row]
     }
+    
+    func getNameCategory(index: Int) -> String {
+        return listCategory[index].name
+    }
+    
+    init(view: HomeView, router: HomeViewRouter,categoryGateway:CategoryGateway) {
+        self.view = view
+        self.router = router
+        self.categoryGateway = categoryGateway
+    }
+    func viewDidLoad(){
+        getCategory()
+    }
+    
+    func getCategory(){
+        categoryGateway?.getCategory(completionHandler: { (result) in
+            switch (result){
+            case let .success(data):
+                if data.status == CodeResponse.success {
+                    self.listCategory = data.data
+                    self.view?.reloadTableView()
+                }else {
+                    self.view?.handleError(title: "Error", content: data.message)
+                }
+                break
+            case let .failure(error):
+                LoadingHUDControl.sharedManager.hideLoadingHud()
+                self.view?.handleError(title: NSLocalizedString("announce", comment: ""), content: error.localizedDescription)
+            }
+        })
+    }
+    
 }
 
 // MARK: - HomePresenterInput
