@@ -21,9 +21,9 @@ extension TSAPI:TargetType
     var path: String {
         switch self {
         case .login:
-            return "/api/auth/signin"
+            return "/auth/signin"
         case .getCategory:
-            return "/api/category"
+            return "/category"
         }
     }
     
@@ -31,7 +31,7 @@ extension TSAPI:TargetType
         switch self {
         case .login:
             return .post
-        default:
+        case .getCategory:
             return .get
         }
     }

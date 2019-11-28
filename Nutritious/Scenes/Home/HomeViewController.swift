@@ -55,6 +55,7 @@ class HomeViewController: BaseViewController, HomeView {
                 tabScrollView.changePageToIndex( currentPage + 1, animated: true)
             }
         }
+        tbFood.reloadData()
     }
     
     func setupTableView(){
@@ -117,10 +118,12 @@ extension HomeViewController: ACTabScrollViewDelegate,ACTabScrollViewDataSource 
     }
     func tabScrollView(_ tabScrollView: ACTabScrollView, didChangePageTo index: Int) {
         currentPage = index
+        
     }
     
     func tabScrollView(_ tabScrollView: ACTabScrollView, didScrollPageTo index: Int) {
         currentPage = index
+        tbFood.reloadData()
     }
     
     
@@ -132,6 +135,10 @@ extension HomeViewController:  UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "foodTableViewCell") as! FoodTableViewCell
+        cell.setData(data: presenter.getDataOfFood(index: currentPage, row: indexPath.row))
+        cell.clickFood = {[weak self] in
+            self?.presenter.presentFoodDetail(food: (self?.presenter.getDataOfFood(index: self!.currentPage, row: indexPath.row))!)
+        }
         return cell
     }
     
@@ -148,6 +155,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "setCollectionViewCell", for: indexPath) as! SetCollectionViewCell
+        
         return cell
     }
     

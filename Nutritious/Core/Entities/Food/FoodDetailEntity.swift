@@ -27,8 +27,8 @@ class FoodDetailEntity: Object, Mappable {
     var vitaminC:Float = 0.0
     var vitaminD:Float = 0.0
     var vitaminE:Float = 0.0
-    var calorie:String = ""
-    var weight:String = ""
+    var calorie:Float = 0.0
+    var weight:Float = 0.0
     
     required convenience init?(map: Map) {
         self.init()
@@ -40,7 +40,7 @@ class FoodDetailEntity: Object, Mappable {
         id <- map["id"]
         name <- map["name"]
         image <- map["image"]
-        _description <- map["_description"]
+        _description <- map["description"]
         price <- map["price"]
         carbonhydrates <- map["carbonhydrates"]
         protein <- map["protein"]

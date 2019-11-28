@@ -7,9 +7,9 @@
 //
 
 import Foundation
-typealias categoryGatewayCompletionHandler = (_ category: Result<CategoryEntity>) -> Void
+typealias CategoryGatewayCompletionHandler = (_ category: Result<CategoryEntity>) -> Void
 
 
 protocol CategoryGateway {
-    func getCategory(completionHandler: @escaping categoryGatewayCompletionHandler)
+    func getCategory(completionHandler: @escaping CategoryGatewayCompletionHandler)
 }

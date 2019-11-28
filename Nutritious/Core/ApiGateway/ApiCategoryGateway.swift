@@ -14,7 +14,7 @@ protocol ApiCategoryGateway: CategoryGateway {
 class ApiCategoryGatewayImplementation: ApiCategoryGateway
 {
 
-    func getCategory(completionHandler: @escaping categoryGatewayCompletionHandler) {
+    func getCategory(completionHandler: @escaping CategoryGatewayCompletionHandler) {
         apiProvider.request(TSAPI.getCategory).asObservable().mapObject(CategoryEntity.self).subscribe(onNext:{(result) in
             completionHandler(.success(result))
         }, onError:{(error) in

@@ -11,6 +11,14 @@ import UIKit
 class MainTapViewController: BaseViewController, MainTapView {
     
     // MARK: Outlets
+    @IBOutlet weak var lbHome: UILabel!
+    @IBOutlet weak var imgHome: UIImageView!
+    @IBOutlet weak var imgCategory: UIImageView!
+    @IBOutlet weak var lbCategory: UILabel!
+    @IBOutlet weak var imgHistory: UIImageView!
+    @IBOutlet weak var lbHistory: UILabel!
+    @IBOutlet weak var imgProfile: UIImageView!
+    @IBOutlet weak var lbProfile: UILabel!
     
     // MARK: Injections
     var presenter: MainTapPresenter!
@@ -30,6 +38,20 @@ class MainTapViewController: BaseViewController, MainTapView {
         }
         presenter.prepare(for: segue, sender: sender)
         
+    }
+    @IBAction func presentHome(_ sender: Any) {
+        presenter.presentHome()
+        
+    }
+    @IBAction func presentCategory(_ sender: Any) {
+        presenter.presentCategory()
+    }
+    
+    @IBAction func presentHistory(_ sender: Any) {
+        presenter.presentHistory()
+    }
+    @IBAction func presentProfile(_ sender: Any) {
+        presenter.presentProfile()
     }
     func handleError(title: String, content: String) {
         

@@ -1,18 +1,18 @@
 //
-//  HomeRouter.swift
+//  FoodDetailRouter.swift
 //  Nutritious
 //
-//  Created by MinhNT on 11/25/19.
+//  Created by MinhNT on 11/27/19.
 //  Copyright (c) 2019 MinhNT. All rights reserved.
 //
 
 import UIKit
 
-protocol HomeViewRouter{
+protocol FoodDetailViewRouter{
 //    func presentExample(leaguesId:Int)
 }
 
-class HomeRouterImplemetation : HomeViewRouter{
+class FoodDetailRouterImplemetation : FoodDetailViewRouter{
     
     // MARK: Injections
     weak var viewController: UIViewController?

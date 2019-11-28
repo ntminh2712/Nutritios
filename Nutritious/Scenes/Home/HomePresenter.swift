@@ -21,6 +21,7 @@ protocol HomePresenter {
     func getNumberOfListFood(index:Int) -> Int
     func getDataOfFood(index:Int, row:Int) -> FoodDetailEntity
     func getNameCategory(index:Int) -> String
+    func presentFoodDetail(food:FoodDetailEntity)
 }
 
 class HomePresenterImplementation: HomePresenter {
@@ -84,6 +85,9 @@ class HomePresenterImplementation: HomePresenter {
                 self.view?.handleError(title: NSLocalizedString("announce", comment: ""), content: error.localizedDescription)
             }
         })
+    }
+    func presentFoodDetail(food:FoodDetailEntity){
+        self.router.presentFoodDetail(food: food)
     }
     
 }
