@@ -74,6 +74,12 @@ class CardView: UIView {
         }
     }
     
+    @IBInspectable var borderColor: UIColor = .clear {
+        didSet {
+            layer.borderColor = borderColor.cgColor
+        }
+    }
+    
     @IBInspectable var shadowOpacity: Float {
         get {
             return layer.shadowOpacity

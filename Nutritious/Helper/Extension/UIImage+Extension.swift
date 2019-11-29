@@ -82,6 +82,21 @@ class CardImage: UIImageView {
         }
     }
     
+    @IBInspectable var borderColor: UIColor = .clear {
+        didSet {
+            layer.borderColor = borderColor.cgColor
+        }
+    }
+    
+    @IBInspectable var borderWidth: CGFloat {
+        get {
+            return layer.borderWidth
+        }
+        set {
+            layer.borderWidth = newValue
+        }
+    }
+    
     @IBInspectable var shadowOffset: CGSize {
         get {
             return layer.shadowOffset

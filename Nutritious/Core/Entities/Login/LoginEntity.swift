@@ -33,8 +33,8 @@ class LoginEntity: Object, Mappable {
 extension LoginEntity {
     class func  getToken()  -> String {
         do {
-            let realm = RealmConnectorManager.connectDefault()
-            return realm!.objects(LoginEntity.self).first?.token ?? ""
+            let realm = try Realm()
+            return realm.objects(LoginEntity.self).first?.token ?? ""
         } catch let error as NSError {
             Log.debug(message: error.description)
             return ""
@@ -45,10 +45,10 @@ extension LoginEntity {
         do {
             let object:LoginEntity = LoginEntity()
             object.token = token
-            let realm = RealmConnectorManager.connectDefault()
-            guard realm?.object(ofType: LoginEntity.self, forPrimaryKey: token) == nil else { return }
-            try realm?.write {
-                realm?.add(object)
+            let realm = try Realm()
+            guard realm.object(ofType: LoginEntity.self, forPrimaryKey: token) == nil else { return }
+            try realm.write {
+                realm.add(object)
             }
         } catch let error as NSError {
             Log.debug(message: error.description)
@@ -56,10 +56,10 @@ extension LoginEntity {
     }
     class func deleteToken() {
         do {
-            let realm = RealmConnectorManager.connectDefault()
-            guard let token = realm?.objects(LoginEntity.self) else { return }
-            try realm?.write {
-                realm?.delete(token)
+            let realm = try Realm()
+            guard let token = realm.objects(LoginEntity.self).first else { return }
+            try realm.write {
+                realm.delete(token)
             }
         } catch let error as NSError {
             Log.debug(message: error.description)

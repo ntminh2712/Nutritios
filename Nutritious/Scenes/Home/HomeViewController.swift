@@ -98,7 +98,7 @@ extension HomeViewController: ACTabScrollViewDelegate,ACTabScrollViewDataSource 
         } else {
             label.font = UIFont.systemFont(ofSize: 25)
         }
-        label.textColor = #colorLiteral(red: 0.9758378863, green: 0.1859404445, blue: 0.3411850035, alpha: 1)
+        label.textColor = #colorLiteral(red: 0.2716201544, green: 0.7891679406, blue: 0.4793732166, alpha: 1)
         label.textAlignment = .center
         
         // if the size of your tab is not fixed, you can adjust the size by the following way.
@@ -139,6 +139,10 @@ extension HomeViewController:  UITableViewDelegate, UITableViewDataSource {
         cell.clickFood = {[weak self] in
             self?.presenter.presentFoodDetail(food: (self?.presenter.getDataOfFood(index: self!.currentPage, row: indexPath.row))!)
         }
+        cell.addToCart = {[weak self] in
+            self?.presenter.addFoodToCart(food: (self?.presenter.getDataOfFood(index: self!.currentPage, row: indexPath.row))!)
+            self?.showToast(message: "Add food success")
+        }
         return cell
     }
     
@@ -167,3 +171,4 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         return CGSize(width: 180, height: 180)
     }
 }
+

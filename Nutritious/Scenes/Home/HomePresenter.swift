@@ -22,6 +22,8 @@ protocol HomePresenter {
     func getDataOfFood(index:Int, row:Int) -> FoodDetailEntity
     func getNameCategory(index:Int) -> String
     func presentFoodDetail(food:FoodDetailEntity)
+    func addFoodToCart(food:FoodDetailEntity)
+    func addSetToCart(set:SetDetailEntity)
 }
 
 class HomePresenterImplementation: HomePresenter {
@@ -67,6 +69,13 @@ class HomePresenterImplementation: HomePresenter {
     }
     func viewDidLoad(){
         getCategory()
+    }
+    
+    func addFoodToCart(food: FoodDetailEntity) {
+        FoodDetailEntity.addFoodToCart(food)
+    }
+    func addSetToCart(set: SetDetailEntity) {
+        SetDetailEntity.addSetToCart(set)
     }
     
     func getCategory(){

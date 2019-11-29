@@ -17,9 +17,7 @@ class FoodEntity: Object, Mappable {
         self.init()
     }
     
-    override static func primaryKey() -> String? {
-        return "token"
-    }
+    
     
     
     

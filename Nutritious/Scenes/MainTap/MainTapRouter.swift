@@ -14,6 +14,7 @@ protocol MainTapViewRouter{
     func presentCategory()
     func presentHistory()
     func presentProfile()
+    func presentCart()
 }
 
 class MainTapRouterImplemetation : MainTapViewRouter{
@@ -28,11 +29,18 @@ class MainTapRouterImplemetation : MainTapViewRouter{
         self.viewController = viewController as! MainTapViewController
     }
     
+    
     func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "contain"
         {
             self.viewController?.contain = segue.destination as? MainTapSegmentController
         }
+    }
+    
+    func presentCart(){
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let newExploreController = storyBoard.instantiateViewController(withIdentifier: "cartViewController") as! CartViewController
+        viewController!.navigationController?.pushViewController(newExploreController, animated: true)
     }
     
     func presentHome() {

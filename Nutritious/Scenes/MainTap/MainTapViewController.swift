@@ -56,6 +56,9 @@ class MainTapViewController: BaseViewController, MainTapView {
     func handleError(title: String, content: String) {
         
     }
+    @IBAction func presentCart(_ sender: Any) {
+        presenter.presentCart()
+    }
 }
 
 // MARK: - MainTapPresenterOutput

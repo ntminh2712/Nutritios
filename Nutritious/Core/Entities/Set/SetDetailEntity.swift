@@ -10,32 +10,35 @@ import Foundation
 import RealmSwift
 import ObjectMapper
 class SetDetailEntity: Object, Mappable {
-    var id:Int = 0
-    var name:String = ""
-    var image:String = ""
-    var _description:String = ""
-    var price:Float = 0.0
-    var carbonhydrates:Float = 0.0
-    var protein:Float = 0.0
-    var lipid:Float = 0.0
-    var xenluloza:Float = 0.0
-    var canxi:Float = 0.0
-    var iron:Float = 0.0
-    var zinc:Float = 0.0
-    var vitaminA:Float = 0.0
-    var vitaminB:Float = 0.0
-    var vitaminC:Float = 0.0
-    var vitaminD:Float = 0.0
-    var vitaminE:Float = 0.0
-    var calorie:String = ""
-    var weight:String = ""
+    @objc dynamic var id:Int = 0
+    @objc dynamic var name:String = ""
+    @objc dynamic var image:String = ""
+    @objc dynamic var _description:String = ""
+    @objc dynamic var price:Float = 0.0
+    @objc dynamic var carbonhydrates:Float = 0.0
+    @objc dynamic var protein:Float = 0.0
+    @objc dynamic var lipid:Float = 0.0
+    @objc dynamic var xenluloza:Float = 0.0
+    @objc dynamic var canxi:Float = 0.0
+    @objc dynamic var iron:Float = 0.0
+    @objc dynamic var zinc:Float = 0.0
+    @objc dynamic var vitaminA:Float = 0.0
+    @objc dynamic var vitaminB:Float = 0.0
+    @objc dynamic var vitaminC:Float = 0.0
+    @objc dynamic var vitaminD:Float = 0.0
+    @objc dynamic var vitaminE:Float = 0.0
+    @objc dynamic var calorie:String = ""
+    @objc dynamic var weight:String = ""
     var foods:[FoodDetailEntity] = []
+    @objc dynamic var quantity:Int = 1
     
     required convenience init?(map: Map) {
         self.init()
     }
     
-    
+    override static func primaryKey() -> String? {
+        return "id"
+    }
     
     func mapping(map: Map) {
         id <- map["id"]
@@ -58,6 +61,67 @@ class SetDetailEntity: Object, Mappable {
         calorie <- map["calorie"]
         weight <- map["weight"]
         foods <- map["foods"]
+        quantity <- map["quantity"]
     }
     
+}
+extension SetDetailEntity {
+    class func  getSetInCart()  -> [SetDetailEntity] {
+        do {
+            let realm = try Realm()
+            return realm.objects(SetDetailEntity.self).toArray(ofType: SetDetailEntity.self)
+        } catch let error as NSError {
+            Log.debug(message: error.description)
+            return []
+        }
+    }
+    
+    class func addSetToCart(_ set: SetDetailEntity) {
+        do {
+            let realm = try Realm()
+            if let set = realm.object(ofType: FoodDetailEntity.self, forPrimaryKey: set.id) {
+                try realm.safeWrite {
+                    set.quantity = set.quantity + 1
+                }
+            }
+            try realm.safeWrite {
+                realm.add(set)
+            }
+            
+        } catch let error as NSError {
+            Log.debug(message: error.description)
+        }
+    }
+    
+    class func removeFoodInCart(_ set: SetDetailEntity) {
+        do {
+            let realm = try Realm()
+            if let set = realm.object(ofType: FoodDetailEntity.self, forPrimaryKey: set.id) {
+                if set.quantity > 1 {
+                    try realm.write {
+                        set.quantity = set.quantity - 1
+                    }
+                }else {
+                    try realm.write {
+                        realm.delete(set)
+                    }
+                }
+                
+            }
+            
+        } catch let error as NSError {
+            Log.debug(message: error.description)
+        }
+    }
+    class func deleteAll(){
+        do {
+            let realm = try Realm()
+            try realm.write {
+                realm.deleteAll()
+            }
+            
+        } catch let error as NSError {
+            Log.debug(message: error.description)
+        }
+    }
 }

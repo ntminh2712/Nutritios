@@ -17,10 +17,6 @@ class SetEntity: Object, Mappable {
         self.init()
     }
     
-    override static func primaryKey() -> String? {
-        return "token"
-    }
-    
     
     
     func mapping(map: Map) {

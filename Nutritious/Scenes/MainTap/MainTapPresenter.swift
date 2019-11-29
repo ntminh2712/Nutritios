@@ -21,6 +21,7 @@ protocol MainTapPresenter {
     func presentCategory()
     func presentHistory()
     func presentProfile()
+    func presentCart()
 }
 
 class MainTapPresenterImplementation: MainTapPresenter {
@@ -57,6 +58,9 @@ class MainTapPresenterImplementation: MainTapPresenter {
     
     func presentProfile() {
         self.router.presentProfile()
+    }
+    func presentCart() {
+        self.router.presentCart()
     }
 }
 

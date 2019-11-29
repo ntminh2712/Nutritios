@@ -19,5 +19,12 @@ class SetCollectionViewCell: UICollectionViewCell {
     func setupView(){
         self.viewBound.setViewRadius()
     }
+    
+    func setData(set:SetDetailEntity){
+        
+    }
+    
+    var clickSet:(()->())?
+    var addToCart:(()->())?
 
 }
