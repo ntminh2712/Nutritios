@@ -8,13 +8,13 @@
 
 import UIKit
 
-class CartViewController: BaseViewController, CartView {
+class CartViewController: BaseViewController, CartView,UIGestureRecognizerDelegate {
     
     // MARK: Outlets
     @IBOutlet weak var tbCart: UITableView!
-    @IBOutlet weak var lbSection: UILabel!
-    @IBOutlet var viewSection: UIView!
-    
+    @IBOutlet var viewBalon: UIView!
+    @IBOutlet weak var lbQuantity: UILabel!
+    var typeHandlerQuantity:HandlerQuantity = .Food
     // MARK: Injections
     var presenter: CartPresenter!
     var configurator: CartConfigurable = CartConfigurator()
@@ -42,8 +42,49 @@ class CartViewController: BaseViewController, CartView {
     @IBAction func back(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }
+    @IBAction func removeQuantity(_ sender: Any) {
+        if typeHandlerQuantity == .Food {
+            if Int(lbQuantity.text ?? "0") == 1 {
+                alertRemove()
+            }else {
+                presenter.removeFood()
+            }
+        }else {
+            if Int(lbQuantity.text ?? "0") == 1 {
+                alertRemove()
+            }else {
+                presenter.removeSet()
+            }
+        }
+
+    }
+    
+    func setQuantity(quantity: Int) {
+        lbQuantity.text = String(quantity)
+    }
+    
+    @IBAction func addQuantity(_ sender: Any) {
+        if typeHandlerQuantity == .Food {
+            presenter.addFood()
+        }else {
+            presenter.addSet()
+        }
+
+    }
+    
     @IBAction func checkout(_ sender: Any) {
         
+    }
+    func alertRemove(){
+        let alert = UIAlertController(title: "Delete", message: "Are you want delete food / set in cart ?", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+            self.presenter.removeFood()
+            self.viewBalon.isHidden = true
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: { action in
+            
+        }))
+        self.present(alert, animated: true, completion: nil)
     }
     @IBAction func deleteCart(_ sender: Any) {
         let alert = UIAlertController(title: "Delete", message: "Are you want delete all food, set in cart ?", preferredStyle: .alert)
@@ -57,10 +98,18 @@ class CartViewController: BaseViewController, CartView {
         self.present(alert, animated: true, completion: nil)
         
     }
+    @IBAction func hiddenPopup(_ sender: Any) {
+        viewBalon.isHidden = true
+    }
+    func showViewBalon(quantity:Int){
+        lbQuantity.text = String(quantity)
+        viewBalon.isHidden = false
+    }
     
     func handleError(title: String, content: String) {
         
     }
+    
 }
 extension CartViewController: UITableViewDelegate, UITableViewDataSource {
     
@@ -101,6 +150,9 @@ extension CartViewController: UITableViewDelegate, UITableViewDataSource {
                 self?.presenter.presentFoodDetail(food: (self?.presenter.getDataOfFood(row: indexPath.row))!)
             }
             cell.popupBalon = {[weak self] in
+                self?.typeHandlerQuantity = .Food
+                self?.presenter.setQuantityFood(food: (self?.presenter.getDataOfFood(row: indexPath.row))!)
+                self?.showViewBalon(quantity: self?.presenter.getDataOfFood(row: indexPath.row).quantity ?? 0)
                 
             }
             return cell

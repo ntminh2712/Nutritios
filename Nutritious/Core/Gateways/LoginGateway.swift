@@ -8,8 +8,9 @@
 
 import Foundation
 typealias loginGatewayCompletionHandler = (_ user: Result<LoginEntity>) -> Void
-
+typealias notificationGatewayCompletionHandler = (_ notification: Result<LoginEntity>) -> Void
 
 protocol LoginGateway {
     func login(username: String, password:String, completionHandler: @escaping loginGatewayCompletionHandler)
+    func addNotification(fcmToken:String, completionHandler: @escaping notificationGatewayCompletionHandler)
 }

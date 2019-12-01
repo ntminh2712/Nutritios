@@ -12,6 +12,7 @@ protocol CartView {
     
     func handleError(title: String, content: String)
     func reloadTableView()
+    func setQuantity(quantity:Int)
 }
 
 protocol CartPresenter {
@@ -23,6 +24,12 @@ protocol CartPresenter {
     func getDataOfSet(row:Int) -> SetDetailEntity
     func deleteCart()
     func presentFoodDetail(food:FoodDetailEntity)
+    func setQuantityFood(food:FoodDetailEntity)
+    func removeFood()
+    func addFood()
+    func addSet()
+    func removeSet()
+    func setQuantitySet(set:SetDetailEntity)
 }
 
 class CartPresenterImplementation: CartPresenter {
@@ -36,6 +43,8 @@ class CartPresenterImplementation: CartPresenter {
 //    var Gateway: Gateway?
     //MARK: LifeCycle
     
+    var handlerQuantityFood:FoodDetailEntity?
+    var handlerQuantitySet:SetDetailEntity?
     var numberOfList: Int{
         if listSetInCart.count != 0 && listFoodInCart.count != 0 {
             return 2
@@ -46,6 +55,7 @@ class CartPresenterImplementation: CartPresenter {
         }
         
     }
+    
     func getDataOfSet(row: Int) -> SetDetailEntity {
         return listSetInCart[row]
     }
@@ -57,9 +67,43 @@ class CartPresenterImplementation: CartPresenter {
     func numberOfSet() -> Int {
         return listSetInCart.count
     }
+    
     func numberOfFood() -> Int {
         return listFoodInCart.count
     }
+    
+    func removeFood() {
+        FoodDetailEntity.removeFoodInCart(handlerQuantityFood!)
+        self.view?.setQuantity(quantity: handlerQuantityFood!.quantity - 1)
+        getCart()
+    }
+    
+    func addFood() {
+        FoodDetailEntity.addFoodToCart(handlerQuantityFood!)
+        self.view?.setQuantity(quantity: handlerQuantityFood!.quantity + 1)
+        getCart()
+    }
+    
+    func setQuantityFood(food: FoodDetailEntity) {
+        handlerQuantityFood = food
+    }
+    
+    func setQuantitySet(set: SetDetailEntity) {
+        handlerQuantitySet = set
+    }
+    
+    func addSet() {
+        SetDetailEntity.addSetToCart(handlerQuantitySet!)
+        self.view?.setQuantity(quantity: handlerQuantityFood!.quantity + 1)
+        getCart()
+    }
+    
+    func removeSet() {
+        SetDetailEntity.removeFoodInCart(handlerQuantitySet!)
+        self.view?.setQuantity(quantity: handlerQuantityFood!.quantity - 1)
+        getCart()
+    }
+    
     init(view: CartView, router: CartViewRouter) {
         self.view = view
         self.router = router

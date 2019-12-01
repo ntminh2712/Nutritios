@@ -20,6 +20,7 @@ use_frameworks!;
     pod 'Firebase/Core'
     pod 'Firebase/Messaging'
     pod 'ACTabScrollView'
+    pod 'KUIPopOver'
 
 end
   

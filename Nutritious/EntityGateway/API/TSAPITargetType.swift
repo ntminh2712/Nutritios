@@ -24,14 +24,18 @@ extension TSAPI:TargetType
             return "/auth/signin"
         case .getCategory:
             return "/category"
+        case .getSuggestSet:
+            return "/api/suggest/combo"
+        case .addNotification:
+            return "/api/devices"
         }
     }
     
     var method: Moya.Method {
         switch self {
-        case .login:
+        case .login, .addNotification:
             return .post
-        case .getCategory:
+        case .getCategory, .getSuggestSet:
             return .get
         }
     }
@@ -39,7 +43,7 @@ extension TSAPI:TargetType
     
     public var parameterEncoding: ParameterEncoding {
         switch self {
-        case .login, .getCategory:
+        case .login, .getCategory, .getSuggestSet, .addNotification:
             return URLEncoding.default
         default:
             return JSONEncoding.default
@@ -67,6 +71,13 @@ extension TSAPI:TargetType
                 return parameter
             }
             return paramester
+        case .addNotification(let fcmToken):
+            var paramester: [String: Any]?{
+                var parameter:[String:Any] = [:]
+                parameter["id"] = fcmToken
+                return parameter
+            }
+            return paramester
         default:
             return [:]
         }
@@ -78,7 +89,7 @@ extension TSAPI:TargetType
     var headers: [String : String]? {
         let token = "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI2IiwiaWF0IjoxNTc0NzUzMTk2LCJleHAiOjE1NzUzNTc5OTZ9.amBTcwUiGG0hQrBJGj8zpcwY-CZuKJryVV1-_bZynom6AgxUDU9auPE6YD8ZVRsb3Ko1HAivI2xpT0G-uvmllQ"
         switch self {
-        case  .getCategory:
+        case  .getCategory, .addNotification, .getSuggestSet:
             var header: [String:String]?{
                 var header: [String:String] = [:]
                 header["Authorization"] = token

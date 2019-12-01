@@ -13,5 +13,7 @@ enum TSAPI
 {
     case login(String?,String?)
     case getCategory
+    case getSuggestSet
+    case addNotification(String)
 }
  

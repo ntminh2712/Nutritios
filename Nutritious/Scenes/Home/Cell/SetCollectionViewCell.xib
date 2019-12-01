@@ -89,6 +89,8 @@
             <size key="customSize" width="180" height="180"/>
             <connections>
                 <outlet property="imgSet" destination="5Iz-Fu-qEl" id="1e8-uV-uls"/>
+                <outlet property="lbKcalPrice" destination="l2O-FV-pCw" id="5h6-As-0pF"/>
+                <outlet property="lbName" destination="UeK-DX-Ttv" id="7xW-Yf-M83"/>
                 <outlet property="viewBound" destination="2LB-nF-17h" id="e7g-nJ-49K"/>
             </connections>
             <point key="canvasLocation" x="226.08695652173915" y="196.20535714285714"/>

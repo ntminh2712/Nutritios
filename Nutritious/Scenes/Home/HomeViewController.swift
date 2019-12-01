@@ -21,7 +21,7 @@ class HomeViewController: BaseViewController, HomeView {
     // MARK: Injections
     var presenter: HomePresenter!
     var configurator: HomeConfigurable = HomeConfigurator()
-
+    
     // MARK: View lifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -77,16 +77,17 @@ class HomeViewController: BaseViewController, HomeView {
         tabScrollView.dataSource = self
         
     }
-
+    
     func handleError(title: String, content: String) {
         
     }
     
     func reloadTableView() {
-        tbFood.reloadData()
-        tabScrollView.reloadData()
+        
         tabScrollView.defaultPage = presenter.numberOfList / 2
         tabScrollView.cachedPageLimit = presenter.numberOfList
+        tbFood.reloadData()
+        tabScrollView.reloadData()
     }
 }
 extension HomeViewController: ACTabScrollViewDelegate,ACTabScrollViewDataSource {
@@ -153,13 +154,19 @@ extension HomeViewController:  UITableViewDelegate, UITableViewDataSource {
 }
 extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return presenter.numberOfListSet
     }
     
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "setCollectionViewCell", for: indexPath) as! SetCollectionViewCell
-        
+        cell.setData(set: presenter.getDataSet(row: indexPath.row))
+        cell.addToCart = {[weak self] in
+            self?.presenter.addSetToCart(set: (self?.presenter.getDataSet(row: indexPath.row))!)
+        }
+        cell.clickSet = {[weak self] in
+            self?.presenter.presentSetDetail(set:(self?.presenter.getDataSet(row: indexPath.row))!)
+        }
         return cell
     }
     

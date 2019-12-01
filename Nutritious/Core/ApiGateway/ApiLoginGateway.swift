@@ -21,5 +21,11 @@ class ApiLoginGatewayImplementation: ApiLoginGateway
         })
     }
     
-    
+    func addNotification(fcmToken: String, completionHandler: @escaping notificationGatewayCompletionHandler) {
+        apiProvider.request(TSAPI.addNotification(fcmToken)).asObservable().mapObject(LoginEntity.self).subscribe(onNext:{(result) in
+            completionHandler(.success(result))
+        }, onError:{(error) in
+            completionHandler(.failure(error))
+        })
+    }
 }

@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import KUIPopOver
 class CartFoodTableViewCell: UITableViewCell {
 
     @IBOutlet weak var lbPrice: UILabel!
@@ -30,10 +30,9 @@ class CartFoodTableViewCell: UITableViewCell {
     @IBAction func presentFoodDetail(_ sender: Any) {
         self.clickFood?()
     }
-    @IBAction func popupBalon(_ sender: Any) {
+    @IBAction func showPopupBalon(_ sender: UIButton) {
         self.popupBalon?()
     }
-    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
@@ -44,3 +43,4 @@ class CartFoodTableViewCell: UITableViewCell {
     var clickFood:(()->())?
     
 }
+

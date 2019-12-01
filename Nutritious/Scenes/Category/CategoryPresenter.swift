@@ -52,7 +52,11 @@ class CategoryPresenterImplementation: CategoryPresenter {
             switch (result){
             case let .success(data):
                 if data.status == CodeResponse.success {
-                    self.listCategory = data.data
+                    for category in data.data{
+                        if category.name != "Các loại bệnh" && category.name != "Dinh Dưỡng"{
+                            self.listCategory.append(category)
+                        }
+                    }
                     self.view?.reloadCollectionView()
                 }else {
                     self.view?.handleError(title: "Error", content: data.message)

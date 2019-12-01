@@ -10,6 +10,7 @@ import UIKit
 
 protocol HomeViewRouter{
     func presentFoodDetail(food:FoodDetailEntity)
+    func presentSetDetail(set:SetDetailEntity)
 }
 
 class HomeRouterImplemetation : HomeViewRouter{
@@ -26,6 +27,10 @@ class HomeRouterImplemetation : HomeViewRouter{
         let newExploreController = storyBoard.instantiateViewController(withIdentifier: "foodDetailViewController") as! FoodDetailViewController
         newExploreController.food = food
         viewController!.navigationController?.pushViewController(newExploreController, animated: true)
+    }
+    
+    func presentSetDetail(set: SetDetailEntity) {
+        
     }
 }
 

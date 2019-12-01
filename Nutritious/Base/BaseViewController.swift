@@ -8,6 +8,7 @@
 
 import UIKit
 import RxSwift
+import KUIPopOver
 class BaseViewController: UIViewController {
     let disposeBag = DisposeBag()
   
@@ -115,3 +116,32 @@ extension BaseViewController {
     
 }
 
+class CustomPopOverView: UIView, KUIPopOverUsable {
+    
+    var contentSize: CGSize {
+        return CGSize(width: 300.0, height: 400.0)
+    }
+    
+    var popOverBackgroundColor: UIColor? {
+        return .black
+    }
+    
+    var arrowDirection: UIPopoverArrowDirection {
+        return .up
+    }
+
+    init(frame: CGRect, view:UIView) {
+        super.init(frame: frame)
+        addSubview(view)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    func layoutSubviews(view:UIView) {
+        super.layoutSubviews()
+        view.frame = self.bounds
+    }
+    
+}

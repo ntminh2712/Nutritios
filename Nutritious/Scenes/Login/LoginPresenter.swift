@@ -63,6 +63,20 @@ class LoginPresenterImplementation: LoginPresenter {
         })
     }
     
+    func addNotification(){
+        if let fcmToken = FcmTokenEntity.getFcmToken(){
+            loginGateway?.addNotification(fcmToken: fcmToken, completionHandler: { (result) in
+                switch (result){
+                case let .success(data):
+                    print("add notification success")
+                case let .failure(error):
+                    print("add notification error")
+                    self.view?.handleError(title: NSLocalizedString("announce", comment: ""), content: error.localizedDescription)
+                }
+            })
+        }
+    }
+    
 }
 
 // MARK: - LoginPresenterInput

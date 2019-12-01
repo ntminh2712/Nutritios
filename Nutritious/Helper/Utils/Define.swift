@@ -17,24 +17,14 @@ struct SegueIdentifier {
     static let ProfileView = "ProfileView"
 }
 
+enum HandlerQuantity{
+    case Food
+    case Set
+}
+
 struct ControllerIdentifier {
     //Login
     static let navigationLogin = "navigationLogin"
-    
-}
-
-enum HandlerPlay:String {
-    case nextMusic = "nextMusic"
-    case previousMusic = "previousMusic"
-    case playMusic = "playMusic"
-    case hiddenPlay = "hiddenPlay"
-    case showPlay = "showPlay"
-    case pauseMusic = "pauseMusic"
-    case startAnimation = "startAnimation"
-    case stopAnimation = "stopAnimation"
-    var notification: NSNotification.Name{
-        return Notification.Name(rawValue: self.rawValue)
-    }
     
 }
 struct DateFormat {

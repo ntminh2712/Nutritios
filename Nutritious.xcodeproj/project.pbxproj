@@ -97,6 +97,13 @@
 		4CEEFFAE2390D6170015A0DD /* CartRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CEEFFAA2390D6170015A0DD /* CartRouter.swift */; };
 		4CEEFFAF2390D6170015A0DD /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CEEFFAB2390D6170015A0DD /* CartViewController.swift */; };
 		4CEEFFB02390D6170015A0DD /* CartConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CEEFFAC2390D6170015A0DD /* CartConfigurator.swift */; };
+		AB8E57E72392CE0B00FB85E5 /* ListCategoryPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8E57E22392CE0B00FB85E5 /* ListCategoryPresenter.swift */; };
+		AB8E57E82392CE0B00FB85E5 /* ListCategoryRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8E57E32392CE0B00FB85E5 /* ListCategoryRouter.swift */; };
+		AB8E57E92392CE0B00FB85E5 /* ListCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8E57E42392CE0B00FB85E5 /* ListCategoryViewController.swift */; };
+		AB8E57EA2392CE0B00FB85E5 /* ListCategoryConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8E57E52392CE0B00FB85E5 /* ListCategoryConfigurator.swift */; };
+		AB8E57EC2392DBD900FB85E5 /* SetGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8E57EB2392DBD900FB85E5 /* SetGateway.swift */; };
+		AB8E57EE2392DC8A00FB85E5 /* ApiSetGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8E57ED2392DC8A00FB85E5 /* ApiSetGateway.swift */; };
+		AB8E57F12392E07700FB85E5 /* FcmTokenEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8E57F02392E07700FB85E5 /* FcmTokenEntity.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -195,6 +202,13 @@
 		4CEEFFAB2390D6170015A0DD /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
 		4CEEFFAC2390D6170015A0DD /* CartConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartConfigurator.swift; sourceTree = "<group>"; };
 		AB7664063AE413E8B1649233 /* Pods_Nutritious.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Nutritious.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AB8E57E22392CE0B00FB85E5 /* ListCategoryPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCategoryPresenter.swift; sourceTree = "<group>"; };
+		AB8E57E32392CE0B00FB85E5 /* ListCategoryRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCategoryRouter.swift; sourceTree = "<group>"; };
+		AB8E57E42392CE0B00FB85E5 /* ListCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCategoryViewController.swift; sourceTree = "<group>"; };
+		AB8E57E52392CE0B00FB85E5 /* ListCategoryConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCategoryConfigurator.swift; sourceTree = "<group>"; };
+		AB8E57EB2392DBD900FB85E5 /* SetGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetGateway.swift; sourceTree = "<group>"; };
+		AB8E57ED2392DC8A00FB85E5 /* ApiSetGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiSetGateway.swift; sourceTree = "<group>"; };
+		AB8E57F02392E07700FB85E5 /* FcmTokenEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FcmTokenEntity.swift; sourceTree = "<group>"; };
 		B81D2939B99D9372AB9DC164 /* Pods-Nutritious.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nutritious.release.xcconfig"; path = "Target Support Files/Pods-Nutritious/Pods-Nutritious.release.xcconfig"; sourceTree = "<group>"; };
 		E6EC6405B228640DBA7A5533 /* Pods-Nutritious.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nutritious.debug.xcconfig"; path = "Target Support Files/Pods-Nutritious/Pods-Nutritious.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -238,6 +252,7 @@
 		4CB83C63238E283F000EB2E7 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				AB8E57E02392CDFD00FB85E5 /* ListCategory */,
 				4CEEFFA32390CA1A0015A0DD /* Cart */,
 				4CEEFF6C2390BE800015A0DD /* Category */,
 				4CEEFF5F2390BE7E0015A0DD /* Food */,
@@ -265,6 +280,7 @@
 			children = (
 				4CB83C7B238E283F000EB2E7 /* CategoryGateway.swift */,
 				4CB83C7C238E283F000EB2E7 /* LoginGateway.swift */,
+				AB8E57EB2392DBD900FB85E5 /* SetGateway.swift */,
 			);
 			path = Gateways;
 			sourceTree = "<group>";
@@ -274,6 +290,7 @@
 			children = (
 				4CB83C7E238E283F000EB2E7 /* ApiLoginGateway.swift */,
 				4CB83C7F238E283F000EB2E7 /* ApiCategoryGateway.swift */,
+				AB8E57ED2392DC8A00FB85E5 /* ApiSetGateway.swift */,
 			);
 			path = ApiGateway;
 			sourceTree = "<group>";
@@ -310,6 +327,7 @@
 			isa = PBXGroup;
 			children = (
 				4CB83C88238E283F000EB2E7 /* LoginEntity.swift */,
+				AB8E57F02392E07700FB85E5 /* FcmTokenEntity.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -460,8 +478,8 @@
 		4CB83CB4238E283F000EB2E7 /* API */ = {
 			isa = PBXGroup;
 			children = (
-				4CB83CB5238E283F000EB2E7 /* ApiProvider.swift */,
 				4CB83CB6238E283F000EB2E7 /* Gateways */,
+				4CB83CB5238E283F000EB2E7 /* ApiProvider.swift */,
 				4CB83CB7238E283F000EB2E7 /* TSAPITargetType.swift */,
 				4CB83CB8238E283F000EB2E7 /* TSAPI.swift */,
 			);
@@ -582,9 +600,8 @@
 		4CEEFF6C2390BE800015A0DD /* Category */ = {
 			isa = PBXGroup;
 			children = (
-				4CEEFF6D2390BE800015A0DD /* CategoryCollectionViewCell.swift */,
+				AB8E57EF2392DE2C00FB85E5 /* Cell */,
 				4CEEFF6E2390BE800015A0DD /* CategoryPresenter.swift */,
-				4CEEFF6F2390BE800015A0DD /* CategoryCollectionViewCell.xib */,
 				4CEEFF702390BE800015A0DD /* CategoryViewController.swift */,
 				4CEEFF712390BE800015A0DD /* CategoryConfigurator.swift */,
 				4CEEFF722390BE800015A0DD /* CategoryRouter.swift */,
@@ -631,6 +648,26 @@
 				4CEEFFA62390CAF80015A0DD /* CartFoodTableViewCell.xib */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		AB8E57E02392CDFD00FB85E5 /* ListCategory */ = {
+			isa = PBXGroup;
+			children = (
+				AB8E57E22392CE0B00FB85E5 /* ListCategoryPresenter.swift */,
+				AB8E57E32392CE0B00FB85E5 /* ListCategoryRouter.swift */,
+				AB8E57E42392CE0B00FB85E5 /* ListCategoryViewController.swift */,
+				AB8E57E52392CE0B00FB85E5 /* ListCategoryConfigurator.swift */,
+			);
+			name = ListCategory;
+			sourceTree = "<group>";
+		};
+		AB8E57EF2392DE2C00FB85E5 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				4CEEFF6D2390BE800015A0DD /* CategoryCollectionViewCell.swift */,
+				4CEEFF6F2390BE800015A0DD /* CategoryCollectionViewCell.xib */,
+			);
+			name = Cell;
 			sourceTree = "<group>";
 		};
 		E5AA6F641B64E5E8EA9A3BF0 /* Pods */ = {
@@ -780,10 +817,13 @@
 				4CEEFF9B2390BE830015A0DD /* ProfileViewController.swift in Sources */,
 				4CEEFF912390BE830015A0DD /* LoginRouter.swift in Sources */,
 				4CEEFF8B2390BE830015A0DD /* FoodDetailViewController.swift in Sources */,
+				AB8E57EE2392DC8A00FB85E5 /* ApiSetGateway.swift in Sources */,
+				AB8E57EA2392CE0B00FB85E5 /* ListCategoryConfigurator.swift in Sources */,
 				4CB83CDE238E283F000EB2E7 /* Label+Extension.swift in Sources */,
 				4CEEFF8A2390BE830015A0DD /* FoodDetailRouter.swift in Sources */,
 				4CB83CE4238E283F000EB2E7 /* Config.swift in Sources */,
 				4CB83CD7238E283F000EB2E7 /* UIDevice+Extension.swift in Sources */,
+				AB8E57E82392CE0B00FB85E5 /* ListCategoryRouter.swift in Sources */,
 				4CEEFFAE2390D6170015A0DD /* CartRouter.swift in Sources */,
 				4CB83CE3238E283F000EB2E7 /* Result.swift in Sources */,
 				4CB83CE5238E283F000EB2E7 /* Log.swift in Sources */,
@@ -792,9 +832,11 @@
 				4CEEFF7E2390BE830015A0DD /* HistoryPresenter.swift in Sources */,
 				4CB83CD8238E283F000EB2E7 /* Date+Extension.swift in Sources */,
 				4CB83CE1238E283F000EB2E7 /* Downloader.swift in Sources */,
+				AB8E57E72392CE0B00FB85E5 /* ListCategoryPresenter.swift in Sources */,
 				4CB83CDD238E283F000EB2E7 /* String+Extension.swift in Sources */,
 				4CEEFF9F2390BF0C0015A0DD /* HistoryTableViewCell.swift in Sources */,
 				4CEEFF902390BE830015A0DD /* LoginPresenter.swift in Sources */,
+				AB8E57EC2392DBD900FB85E5 /* SetGateway.swift in Sources */,
 				4CEEFF932390BE830015A0DD /* CategoryPresenter.swift in Sources */,
 				4CEEFF8E2390BE830015A0DD /* LoginConfigurator.swift in Sources */,
 				4CEEFFAD2390D6170015A0DD /* CartPresenter.swift in Sources */,
@@ -817,6 +859,7 @@
 				4CEEFF812390BE830015A0DD /* HomeViewController.swift in Sources */,
 				4CEEFF7B2390BE830015A0DD /* MainTapViewController.swift in Sources */,
 				4CEEFFB02390D6170015A0DD /* CartConfigurator.swift in Sources */,
+				AB8E57E92392CE0B00FB85E5 /* ListCategoryViewController.swift in Sources */,
 				4CB83CE9238E283F000EB2E7 /* ViewRouter.swift in Sources */,
 				4CB83CCF238E283F000EB2E7 /* FoodDetailEntity.swift in Sources */,
 				4CB83CE7238E283F000EB2E7 /* Define.swift in Sources */,
@@ -824,6 +867,7 @@
 				4CEEFF782390BE830015A0DD /* MainTapRouter.swift in Sources */,
 				4CEEFFAF2390D6170015A0DD /* CartViewController.swift in Sources */,
 				4CB83CEC238E283F000EB2E7 /* EmptySegue.swift in Sources */,
+				AB8E57F12392E07700FB85E5 /* FcmTokenEntity.swift in Sources */,
 				4CB83CCC238E283F000EB2E7 /* ApiLoginGateway.swift in Sources */,
 				4CB83CF0238E283F000EB2E7 /* TSAPITargetType.swift in Sources */,
 				4CEEFF982390BE830015A0DD /* ProfilePresenter.swift in Sources */,

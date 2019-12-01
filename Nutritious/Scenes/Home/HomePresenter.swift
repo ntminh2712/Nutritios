@@ -24,6 +24,9 @@ protocol HomePresenter {
     func presentFoodDetail(food:FoodDetailEntity)
     func addFoodToCart(food:FoodDetailEntity)
     func addSetToCart(set:SetDetailEntity)
+    func presentSetDetail(set:SetDetailEntity)
+    var numberOfListSet:Int {get}
+    func getDataSet(row:Int) -> SetDetailEntity
 }
 
 class HomePresenterImplementation: HomePresenter {
@@ -31,12 +34,13 @@ class HomePresenterImplementation: HomePresenter {
     
     
     var listCategory:[CategoryDetailEntity] = []
-    
+    var listSetSuggest:[SetDetailEntity] = []
     
     //MARK: Injections
     private var view: HomeView?
     var router: HomeViewRouter
     var categoryGateway:CategoryGateway?
+    var setGateway:SetGateway?
     //MARK: LifeCycle
     var numberOfList: Int{
         return listCategory.count
@@ -54,6 +58,14 @@ class HomePresenterImplementation: HomePresenter {
         
     }
     
+    var numberOfListSet: Int{
+        return listSetSuggest.count
+    }
+    
+    func getDataSet(row: Int) -> SetDetailEntity {
+        return listSetSuggest[row]
+    }
+    
     func getDataOfFood(index: Int, row: Int) -> FoodDetailEntity {
         return listCategory[index].foods[row]
     }
@@ -62,13 +74,15 @@ class HomePresenterImplementation: HomePresenter {
         return listCategory[index].name
     }
     
-    init(view: HomeView, router: HomeViewRouter,categoryGateway:CategoryGateway) {
+    init(view: HomeView, router: HomeViewRouter,categoryGateway:CategoryGateway, setGateway: SetGateway) {
         self.view = view
         self.router = router
         self.categoryGateway = categoryGateway
+        self.setGateway = setGateway
     }
     func viewDidLoad(){
         getCategory()
+        getListSuggestSet()
     }
     
     func addFoodToCart(food: FoodDetailEntity) {
@@ -83,7 +97,29 @@ class HomePresenterImplementation: HomePresenter {
             switch (result){
             case let .success(data):
                 if data.status == CodeResponse.success {
-                    self.listCategory = data.data
+                    for category in data.data{
+                        if category.name != "Các loại bệnh" && category.name != "Dinh Dưỡng"{
+                            self.listCategory.append(category)
+                        }
+                    }
+                    self.view?.reloadTableView()
+                }else {
+                    self.view?.handleError(title: "Error", content: data.message)
+                }
+                break
+            case let .failure(error):
+                LoadingHUDControl.sharedManager.hideLoadingHud()
+                self.view?.handleError(title: NSLocalizedString("announce", comment: ""), content: error.localizedDescription)
+            }
+        })
+    }
+    
+    func getListSuggestSet(){
+        setGateway?.getSetSuggest(completionHandler: { (result) in
+            switch (result){
+            case let .success(data):
+                if data.status == CodeResponse.success {
+                    self.listSetSuggest = data.data
                     self.view?.reloadTableView()
                 }else {
                     self.view?.handleError(title: "Error", content: data.message)
@@ -99,6 +135,9 @@ class HomePresenterImplementation: HomePresenter {
         self.router.presentFoodDetail(food: food)
     }
     
+    func presentSetDetail(set:SetDetailEntity) {
+        
+    }
 }
 
 // MARK: - HomePresenterInput
