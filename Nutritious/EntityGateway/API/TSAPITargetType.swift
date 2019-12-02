@@ -25,9 +25,11 @@ extension TSAPI:TargetType
         case .getCategory:
             return "/category"
         case .getSuggestSet:
-            return "/api/suggest/combo"
+            return "/suggest/combo"
+        case .getSetDetail(let setId):
+            return "/combo/\(setId)"
         case .addNotification:
-            return "/api/devices"
+            return "/devices"
         }
     }
     
@@ -35,7 +37,7 @@ extension TSAPI:TargetType
         switch self {
         case .login, .addNotification:
             return .post
-        case .getCategory, .getSuggestSet:
+        case .getCategory, .getSuggestSet, .getSetDetail:
             return .get
         }
     }
@@ -43,7 +45,7 @@ extension TSAPI:TargetType
     
     public var parameterEncoding: ParameterEncoding {
         switch self {
-        case .login, .getCategory, .getSuggestSet, .addNotification:
+        case .login, .getCategory, .getSuggestSet, .addNotification, .getSetDetail:
             return URLEncoding.default
         default:
             return JSONEncoding.default
@@ -89,7 +91,7 @@ extension TSAPI:TargetType
     var headers: [String : String]? {
         let token = "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI2IiwiaWF0IjoxNTc0NzUzMTk2LCJleHAiOjE1NzUzNTc5OTZ9.amBTcwUiGG0hQrBJGj8zpcwY-CZuKJryVV1-_bZynom6AgxUDU9auPE6YD8ZVRsb3Ko1HAivI2xpT0G-uvmllQ"
         switch self {
-        case  .getCategory, .addNotification, .getSuggestSet:
+        case  .getCategory, .addNotification, .getSuggestSet, .getSetDetail:
             var header: [String:String]?{
                 var header: [String:String] = [:]
                 header["Authorization"] = token

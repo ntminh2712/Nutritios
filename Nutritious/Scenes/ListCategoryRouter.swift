@@ -9,10 +9,11 @@
 import UIKit
 
 protocol ListCategoryViewRouter{
-//    func presentExample(leaguesId:Int)
+    func presentFoodDetail(food:FoodDetailEntity)
+    func presentSetDetail(set:SetDetailEntity)
 }
 
-class ListCategoryRouterImplemetation {
+class ListCategoryRouterImplemetation: ListCategoryViewRouter {
     
     // MARK: Injections
     weak var viewController: UIViewController?
@@ -21,12 +22,20 @@ class ListCategoryRouterImplemetation {
     required init(viewController: UIViewController) {
         self.viewController = viewController
     }
-//    func presentExample(leaguesId:Int){
-//        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-//        let newExploreController = storyBoard.instantiateViewController(withIdentifier: "leaguesDetailController") as! LeaguesDetailController
-//        newExploreController.leaguesId = leaguesId
-//        viewController!.navigationController?.pushViewController(newExploreController, animated: true)
-//    }
+    
+    func presentFoodDetail(food:FoodDetailEntity){
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let newExploreController = storyBoard.instantiateViewController(withIdentifier: "foodDetailViewController") as! FoodDetailViewController
+        newExploreController.food = food
+        viewController!.navigationController?.pushViewController(newExploreController, animated: true)
+    }
+    
+    func presentSetDetail(set:SetDetailEntity){
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let newExploreController = storyBoard.instantiateViewController(withIdentifier: "setDetailViewController") as! SetDetailViewController
+        newExploreController.setId = set.id
+        viewController!.navigationController?.pushViewController(newExploreController, animated: true)
+    }
 }
 
 

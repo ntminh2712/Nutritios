@@ -18,6 +18,7 @@ protocol CategoryPresenter {
     func viewDidLoad()
     var numberOfList:Int {get}
     func getCategory(row:Int) -> CategoryDetailEntity
+    func presentListCategory(row:Int)
 }
 
 class CategoryPresenterImplementation: CategoryPresenter {
@@ -67,6 +68,10 @@ class CategoryPresenterImplementation: CategoryPresenter {
                 self.view?.handleError(title: NSLocalizedString("announce", comment: ""), content: error.localizedDescription)
             }
         })
+    }
+    
+    func presentListCategory(row: Int) {
+        self.router.presentListCategory(category: listCategory[row])
     }
     
     func presentExample(leaguesId: Int){

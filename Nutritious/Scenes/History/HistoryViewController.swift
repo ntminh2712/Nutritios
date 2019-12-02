@@ -11,6 +11,7 @@ import UIKit
 class HistoryViewController: BaseViewController, HistoryView {
     
     // MARK: Outlets
+    @IBOutlet weak var tbDiscover: UITableView!
     
     // MARK: Injections
     var presenter: HistoryPresenter!
@@ -21,14 +22,35 @@ class HistoryViewController: BaseViewController, HistoryView {
         super.viewDidLoad()
         configurator.configure(viewController: self)
         presenter.viewDidLoad()
-        
+        setupTableView()
     }
+    
+    
+    func setupTableView(){
+        tbDiscover.delegate = self
+        tbDiscover.dataSource = self
+        tbDiscover.register(UINib(nibName: "HistoryTableViewCell", bundle: nil), forCellReuseIdentifier: "historyTableViewCell")
+    }
+    
     func handleError(title: String, content: String) {
         
     }
 }
 
 // MARK: - HistoryPresenterOutput
-//extension HistoryViewController: UITableViewDataSource, UITableViewDelegate  {
-//
-//}
+extension HistoryViewController: UITableViewDataSource, UITableViewDelegate  {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 10
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "historyTableViewCell") as! HistoryTableViewCell
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 180
+    }
+    
+
+}

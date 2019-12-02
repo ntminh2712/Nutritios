@@ -97,11 +97,11 @@ extension FoodDetailEntity {
             let realm = try Realm()
             if let food = realm.object(ofType: FoodDetailEntity.self, forPrimaryKey: food.id) {
                 if food.quantity > 1 {
-                    try realm.write {
+                    try realm.safeWrite {
                         food.quantity = food.quantity - 1
                     }
                 }else {
-                    try realm.write {
+                    try realm.safeWrite {
                         realm.delete(food)
                     }
                 }
@@ -115,7 +115,7 @@ extension FoodDetailEntity {
     class func deleteAll(){
         do {
             let realm = try Realm()
-            try realm.write {
+            try realm.safeWrite {
                 realm.deleteAll()
             }
             

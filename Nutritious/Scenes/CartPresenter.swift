@@ -30,6 +30,7 @@ protocol CartPresenter {
     func addSet()
     func removeSet()
     func setQuantitySet(set:SetDetailEntity)
+    func presentSetDetail(row:Int)
 }
 
 class CartPresenterImplementation: CartPresenter {
@@ -74,13 +75,13 @@ class CartPresenterImplementation: CartPresenter {
     
     func removeFood() {
         FoodDetailEntity.removeFoodInCart(handlerQuantityFood!)
-        self.view?.setQuantity(quantity: handlerQuantityFood!.quantity - 1)
+        self.view?.setQuantity(quantity: handlerQuantityFood!.quantity)
         getCart()
     }
     
     func addFood() {
         FoodDetailEntity.addFoodToCart(handlerQuantityFood!)
-        self.view?.setQuantity(quantity: handlerQuantityFood!.quantity + 1)
+        self.view?.setQuantity(quantity: handlerQuantityFood!.quantity)
         getCart()
     }
     
@@ -94,13 +95,13 @@ class CartPresenterImplementation: CartPresenter {
     
     func addSet() {
         SetDetailEntity.addSetToCart(handlerQuantitySet!)
-        self.view?.setQuantity(quantity: handlerQuantityFood!.quantity + 1)
+        self.view?.setQuantity(quantity: handlerQuantitySet!.quantity)
         getCart()
     }
     
     func removeSet() {
         SetDetailEntity.removeFoodInCart(handlerQuantitySet!)
-        self.view?.setQuantity(quantity: handlerQuantityFood!.quantity - 1)
+        self.view?.setQuantity(quantity: handlerQuantitySet!.quantity)
         getCart()
     }
     
@@ -125,8 +126,13 @@ class CartPresenterImplementation: CartPresenter {
     func presentExample(leaguesId: Int){
 //        self.router.presentLeaguesDetail(leaguesId: leaguesId)
     }
+    
     func presentFoodDetail(food:FoodDetailEntity){
         self.router.presentFoodDetail(food: food)
+    }
+    
+    func presentSetDetail(row:Int){
+        self.router.presentSetDetail(set: listSetInCart[row])
     }
 }
 

@@ -24,7 +24,7 @@ protocol HomePresenter {
     func presentFoodDetail(food:FoodDetailEntity)
     func addFoodToCart(food:FoodDetailEntity)
     func addSetToCart(set:SetDetailEntity)
-    func presentSetDetail(set:SetDetailEntity)
+    func presentSetDetail(row:Int)
     var numberOfListSet:Int {get}
     func getDataSet(row:Int) -> SetDetailEntity
 }
@@ -119,7 +119,7 @@ class HomePresenterImplementation: HomePresenter {
             switch (result){
             case let .success(data):
                 if data.status == CodeResponse.success {
-                    self.listSetSuggest = data.data
+                    self.listSetSuggest = data.listSuggest
                     self.view?.reloadTableView()
                 }else {
                     self.view?.handleError(title: "Error", content: data.message)
@@ -135,8 +135,8 @@ class HomePresenterImplementation: HomePresenter {
         self.router.presentFoodDetail(food: food)
     }
     
-    func presentSetDetail(set:SetDetailEntity) {
-        
+    func presentSetDetail(row:Int) {
+        self.router.presentSetDetail(set: listSetSuggest[row])
     }
 }
 

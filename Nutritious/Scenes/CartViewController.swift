@@ -98,12 +98,14 @@ class CartViewController: BaseViewController, CartView,UIGestureRecognizerDelega
         self.present(alert, animated: true, completion: nil)
         
     }
-    @IBAction func hiddenPopup(_ sender: Any) {
-        viewBalon.isHidden = true
-    }
+    
     func showViewBalon(quantity:Int){
         lbQuantity.text = String(quantity)
         viewBalon.isHidden = false
+    }
+    
+    @IBAction func hiddentPopup(_ sender: Any) {
+        viewBalon.isHidden = true
     }
     
     func handleError(title: String, content: String) {
@@ -146,19 +148,26 @@ extension CartViewController: UITableViewDelegate, UITableViewDataSource {
         if indexPath.section == 1 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "cartFoodTableViewCell") as! CartFoodTableViewCell
             cell.setData(data: presenter.getDataOfFood(row: indexPath.row))
-            cell.clickFood = {[weak self] in
+            cell.clickDetail = {[weak self] in
                 self?.presenter.presentFoodDetail(food: (self?.presenter.getDataOfFood(row: indexPath.row))!)
             }
             cell.popupBalon = {[weak self] in
                 self?.typeHandlerQuantity = .Food
                 self?.presenter.setQuantityFood(food: (self?.presenter.getDataOfFood(row: indexPath.row))!)
                 self?.showViewBalon(quantity: self?.presenter.getDataOfFood(row: indexPath.row).quantity ?? 0)
-                
             }
             return cell
         }else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "cartFoodTableViewCell") as! CartFoodTableViewCell
-            
+            cell.setData(data: presenter.getDataOfSet(row: indexPath.row))
+            cell.clickDetail = {[weak self] in
+                self?.presenter.presentSetDetail(row: indexPath.row)
+            }
+            cell.popupBalon = {[weak self] in
+                self?.typeHandlerQuantity = .Set
+                self?.presenter.setQuantitySet(set: (self?.presenter.getDataOfSet(row: indexPath.row))!)
+                self?.showViewBalon(quantity: self?.presenter.getDataOfSet(row: indexPath.row).quantity ?? 0)
+            }
             return cell
         }
         

@@ -165,7 +165,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             self?.presenter.addSetToCart(set: (self?.presenter.getDataSet(row: indexPath.row))!)
         }
         cell.clickSet = {[weak self] in
-            self?.presenter.presentSetDetail(set:(self?.presenter.getDataSet(row: indexPath.row))!)
+            self?.presenter.presentSetDetail(row:indexPath.row)
         }
         return cell
     }

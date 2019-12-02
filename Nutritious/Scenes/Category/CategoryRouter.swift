@@ -9,7 +9,7 @@
 import UIKit
 
 protocol CategoryViewRouter{
-//    func presentExample(leaguesId:Int)
+    func presentListCategory(category:CategoryDetailEntity)
 }
 
 class CategoryRouterImplemetation : CategoryViewRouter{
@@ -21,12 +21,12 @@ class CategoryRouterImplemetation : CategoryViewRouter{
     required init(viewController: UIViewController) {
         self.viewController = viewController
     }
-//    func presentExample(leaguesId:Int){
-//        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-//        let newExploreController = storyBoard.instantiateViewController(withIdentifier: "leaguesDetailController") as! LeaguesDetailController
-//        newExploreController.leaguesId = leaguesId
-//        viewController!.navigationController?.pushViewController(newExploreController, animated: true)
-//    }
+    func presentListCategory(category:CategoryDetailEntity){
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let newExploreController = storyBoard.instantiateViewController(withIdentifier: "listCategoryViewController") as! ListCategoryViewController
+        newExploreController.categoryList = category
+        viewController!.navigationController?.pushViewController(newExploreController, animated: true)
+    }
 }
 
 

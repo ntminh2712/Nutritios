@@ -27,8 +27,17 @@ class CartFoodTableViewCell: UITableViewCell {
         lbWeight.text = "\(data.weight * Float(data.quantity))g"
         lbQuantity.text = String(data.quantity)
     }
+    
+    func setData(data:SetDetailEntity) {
+        imgFood.setCustomImage(data.image, defaultAvatar: "")
+        lbName.text = data.name
+        lbPrice.text = String((data.price * Float(data.quantity)).convertTypePrice())
+        lbWeight.text = "\(data.weight * Float(data.quantity))g"
+        lbQuantity.text = String(data.quantity)
+    }
+    
     @IBAction func presentFoodDetail(_ sender: Any) {
-        self.clickFood?()
+        self.clickDetail?()
     }
     @IBAction func showPopupBalon(_ sender: UIButton) {
         self.popupBalon?()
@@ -40,7 +49,7 @@ class CartFoodTableViewCell: UITableViewCell {
     }
     
     var popupBalon:(()->())?
-    var clickFood:(()->())?
+    var clickDetail:(()->())?
     
 }
 

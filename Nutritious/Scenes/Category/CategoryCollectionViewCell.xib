@@ -24,7 +24,21 @@
                     </imageView>
                     <view alpha="0.40000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HAb-4M-DTa">
                         <rect key="frame" x="15" y="15" width="164" height="175"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cU3-EU-dPx">
+                                <rect key="frame" x="0.0" y="0.0" width="164" height="175"/>
+                                <connections>
+                                    <action selector="clickCategory:" destination="gTV-IL-0wX" eventType="touchUpInside" id="8Zo-DF-Mx0"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="cU3-EU-dPx" firstAttribute="height" secondItem="HAb-4M-DTa" secondAttribute="height" id="8aR-Tc-8zg"/>
+                            <constraint firstItem="cU3-EU-dPx" firstAttribute="width" secondItem="HAb-4M-DTa" secondAttribute="width" id="Det-QA-maB"/>
+                            <constraint firstItem="cU3-EU-dPx" firstAttribute="centerY" secondItem="HAb-4M-DTa" secondAttribute="centerY" id="b3a-nt-4YR"/>
+                            <constraint firstItem="cU3-EU-dPx" firstAttribute="centerX" secondItem="HAb-4M-DTa" secondAttribute="centerX" id="uwc-Vl-7Un"/>
+                        </constraints>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nhóm đường bột" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0yU-A8-mBO">
                         <rect key="frame" x="20" y="93.5" width="154" height="18"/>

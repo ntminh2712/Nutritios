@@ -15,7 +15,7 @@ class ListCategoryViewController: BaseViewController, ListCategoryView {
     @IBOutlet weak var smCategory: UISegmentedControl!
     @IBOutlet weak var sbListCategory: UISearchBar!
     @IBOutlet weak var heightSearchBar: NSLayoutConstraint!
-    
+    var categoryList:CategoryDetailEntity?
     // MARK: Injections
     var presenter: ListCategoryPresenter!
     var configurator: ListCategoryConfigurable = ListCategoryConfigurator()
@@ -26,11 +26,14 @@ class ListCategoryViewController: BaseViewController, ListCategoryView {
         configurator.configure(viewController: self)
         presenter.viewDidLoad()
         setupTableView()
+        setupSearchBar()
+        self.presenter.setDataList(category: self.categoryList!)
     }
     
     func setupTableView(){
         tbListCategory.delegate = self
         tbListCategory.dataSource = self
+        tbListCategory.register(UINib(nibName: "FoodTableViewCell", bundle: nil), forCellReuseIdentifier: "foodTableViewCell")
     }
     
     func setupSearchBar(){
@@ -41,16 +44,13 @@ class ListCategoryViewController: BaseViewController, ListCategoryView {
     func handleError(title: String, content: String) {
         
     }
-    @IBAction func search(_ sender: Any) {
-//        sender.isSelect = !sender.isSelect
-//        if sender.isSeclected {
-//            heightSearchBar.constant = 50
-//        }else {
-//            heightSearchBar.constant = 0
-//        }
+    @IBAction func back(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
     }
-    
     func reloadTableView() {
+        tbListCategory.reloadData()
+    }
+    @IBAction func chooseSegment(_ sender: Any) {
         tbListCategory.reloadData()
     }
     
@@ -70,13 +70,31 @@ extension ListCategoryViewController: UITableViewDataSource, UITableViewDelegate
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if smCategory.selectedSegmentIndex == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "foodTableViewCell") as! FoodTableViewCell
+            cell.setData(data: self.presenter.getDataFood(row: indexPath.row))
+            cell.addToCart = {[weak self] in
+                self?.presenter.addFoodToCart(row: indexPath.row)
+                self?.showToast(message: "Add food success")
+            }
+            cell.clickFood = {[weak self] in
+                self?.presenter.presentFoodDetail(row: indexPath.row)
+            }
             return cell
         }else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "foodTableViewCell") as! FoodTableViewCell
+            cell.setData(data: self.presenter.getDataSet(row: indexPath.row))
+            cell.addToCart = {[weak self] in
+                self?.presenter.addSetToCart(row: indexPath.row)
+                self?.showToast(message: "Add set success")
+            }
+            cell.clickFood = {[weak self] in
+                self?.presenter.presentSetDetail(row: indexPath.row)
+            }
             return cell
         }
     }
-    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 110
+    }
 }
 
 // MARk: SearchBar deleagate

@@ -16,6 +16,7 @@ protocol FoodDetailView {
 
 protocol FoodDetailPresenter {
     func viewDidLoad()
+    func addFoodToCart(food:FoodDetailEntity)
 }
 
 class FoodDetailPresenterImplementation: FoodDetailPresenter {
@@ -32,6 +33,10 @@ class FoodDetailPresenterImplementation: FoodDetailPresenter {
     }
     func viewDidLoad(){
         
+    }
+    
+    func addFoodToCart(food:FoodDetailEntity){
+        FoodDetailEntity.addFoodToCart(food)
     }
     
     func presentExample(leaguesId: Int){

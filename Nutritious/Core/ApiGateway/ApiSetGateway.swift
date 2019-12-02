@@ -22,4 +22,12 @@ class ApiSetGatewayImplementation: ApiSetGateway
         })
     }
     
+    func getSetDetail(setId: Int, completionHandler: @escaping SetDetailGatewayCompletionHandler) {
+        apiProvider.request(TSAPI.getSetDetail(setId)).asObservable().mapObject(SetEntity.self).subscribe(onNext:{(result) in
+            completionHandler(.success(result))
+        }, onError:{(error) in
+            completionHandler(.failure(error))
+        })
+    }
+    
 }

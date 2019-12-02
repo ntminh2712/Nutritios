@@ -53,6 +53,9 @@ extension CategoryViewController: UICollectionViewDelegate, UICollectionViewData
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "categoryCollectionViewCell", for: indexPath) as! CategoryCollectionViewCell
         cell.setData(data: presenter.getCategory(row: indexPath.row))
+        cell.clickCategory = {[weak self] in
+            self?.presenter.presentListCategory(row: indexPath.row)
+        }
         return cell
     }
     

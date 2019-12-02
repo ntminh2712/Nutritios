@@ -12,7 +12,8 @@ import ObjectMapper
 class SetEntity: Object, Mappable {
     var status:Int = 0
     var message:String = ""
-    var data:[SetDetailEntity] = []
+    var data:SetDetailEntity?
+    var listSuggest:[SetDetailEntity] = []
     required convenience init?(map: Map) {
         self.init()
     }
@@ -23,6 +24,7 @@ class SetEntity: Object, Mappable {
         status <- map["status"]
         message <- map["message"]
         data <- map["data"]
+        listSuggest <- map["data"]
     }
     
 }

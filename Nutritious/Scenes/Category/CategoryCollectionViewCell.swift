@@ -27,5 +27,9 @@ class CategoryCollectionViewCell: UICollectionViewCell {
         imgGroup.setCustomImage(data.image, defaultAvatar: "")
         lbName.text = data.name
     }
-
+    @IBAction func clickCategory(_ sender: Any) {
+        self.clickCategory?()
+    }
+    
+    var clickCategory:(()->())?
 }

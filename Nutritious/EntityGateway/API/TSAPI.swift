@@ -15,5 +15,6 @@ enum TSAPI
     case getCategory
     case getSuggestSet
     case addNotification(String)
+    case getSetDetail(Int)
 }
  

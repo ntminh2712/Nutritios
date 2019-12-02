@@ -27,8 +27,8 @@ class SetDetailEntity: Object, Mappable {
     @objc dynamic var vitaminC:Float = 0.0
     @objc dynamic var vitaminD:Float = 0.0
     @objc dynamic var vitaminE:Float = 0.0
-    @objc dynamic var calorie:String = ""
-    @objc dynamic var weight:String = ""
+    @objc dynamic var calorie:Float = 0.0
+    @objc dynamic var weight:Float = 0.0
     var foods:[FoodDetailEntity] = []
     @objc dynamic var quantity:Int = 1
     
@@ -44,7 +44,7 @@ class SetDetailEntity: Object, Mappable {
         id <- map["id"]
         name <- map["name"]
         image <- map["image"]
-        _description <- map["_description"]
+        _description <- map["description"]
         price <- map["price"]
         carbonhydrates <- map["carbonhydrates"]
         protein <- map["protein"]
@@ -79,15 +79,17 @@ extension SetDetailEntity {
     class func addSetToCart(_ set: SetDetailEntity) {
         do {
             let realm = try Realm()
-            if let set = realm.object(ofType: FoodDetailEntity.self, forPrimaryKey: set.id) {
+            if let set = realm.object(ofType: SetDetailEntity.self, forPrimaryKey: set.id) {
                 try realm.safeWrite {
                     set.quantity = set.quantity + 1
                 }
+            }else {
+                try realm.safeWrite {
+                    realm.add(set)
+                }
+                
             }
-            try realm.safeWrite {
-                realm.add(set)
-            }
-            
+           
         } catch let error as NSError {
             Log.debug(message: error.description)
         }
@@ -96,7 +98,7 @@ extension SetDetailEntity {
     class func removeFoodInCart(_ set: SetDetailEntity) {
         do {
             let realm = try Realm()
-            if let set = realm.object(ofType: FoodDetailEntity.self, forPrimaryKey: set.id) {
+            if let set = realm.object(ofType: SetDetailEntity.self, forPrimaryKey: set.id) {
                 if set.quantity > 1 {
                     try realm.write {
                         set.quantity = set.quantity - 1

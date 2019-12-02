@@ -27,6 +27,14 @@ class FoodTableViewCell: UITableViewCell {
         lbKcal.text = "\(data.calorie)kcal/\(data.weight)g"
         lbDescription.text = data._description
     }
+    
+    func setData(data:SetDetailEntity){
+        imgFood.setCustomImage(data.image, defaultAvatar: "")
+        lbName.text = data.name
+        lbPrice.text = String(data.price.convertTypePrice())
+        lbKcal.text = "\(data.calorie)kcal/\(data.weight)g"
+        lbDescription.text = data._description
+    }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)

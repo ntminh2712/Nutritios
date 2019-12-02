@@ -19,10 +19,7 @@ class ListCategoryConfigurator: ListCategoryConfigurable {
     
         let router = ListCategoryRouterImplemetation(viewController: viewController)
 //        let exploreGateway = ApiExploreGatewayImplementation()
-        let presenter = ListCategoryPresenterImplementation(
-            view: viewController,
-            router: router as! ListCategoryViewRouter
-        )
+        let presenter = ListCategoryPresenterImplementation(view: viewController,router: router)
         
         viewController.presenter = presenter
 

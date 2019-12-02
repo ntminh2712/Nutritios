@@ -8,8 +8,9 @@
 
 import Foundation
 typealias SetGatewayCompletionHandler = (_ category: Result<SetEntity>) -> Void
-
+typealias SetDetailGatewayCompletionHandler = (_ category: Result<SetEntity>) -> Void
 
 protocol SetGateway {
     func getSetSuggest(completionHandler: @escaping SetGatewayCompletionHandler)
+    func getSetDetail(setId:Int, completionHandler: @escaping SetDetailGatewayCompletionHandler)
 }
