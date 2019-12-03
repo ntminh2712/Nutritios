@@ -45,7 +45,7 @@ extension TSAPI:TargetType
     
     public var parameterEncoding: ParameterEncoding {
         switch self {
-        case .login, .getCategory, .getSuggestSet, .addNotification, .getSetDetail:
+        case .getCategory, .getSuggestSet, .getSetDetail:
             return URLEncoding.default
         default:
             return JSONEncoding.default
@@ -90,12 +90,22 @@ extension TSAPI:TargetType
     
     var headers: [String : String]? {
         let token = "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI2IiwiaWF0IjoxNTc0NzUzMTk2LCJleHAiOjE1NzUzNTc5OTZ9.amBTcwUiGG0hQrBJGj8zpcwY-CZuKJryVV1-_bZynom6AgxUDU9auPE6YD8ZVRsb3Ko1HAivI2xpT0G-uvmllQ"
+        
         switch self {
         case  .getCategory, .addNotification, .getSuggestSet, .getSetDetail:
             var header: [String:String]?{
                 var header: [String:String] = [:]
-                header["Authorization"] = token
+                if let token = LoginEntity.getToken() {
+                    header["Authorization"] = token
+                }
                 header["Content-Type"] = "application/x-www-form-urlencoded"
+                return header
+            }
+            return header
+        case.login:
+            var header: [String:String]?{
+                var header: [String:String] = [:]
+                header["Content-Type"] = "application/json"
                 return header
             }
             return header

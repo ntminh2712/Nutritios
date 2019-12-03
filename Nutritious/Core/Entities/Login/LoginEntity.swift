@@ -31,13 +31,13 @@ class LoginEntity: Object, Mappable {
     
 }
 extension LoginEntity {
-    class func  getToken()  -> String {
+    class func  getToken()  -> String? {
         do {
             let realm = try Realm()
-            return realm.objects(LoginEntity.self).first?.token ?? ""
+            return realm.objects(LoginEntity.self).first?.token ?? nil
         } catch let error as NSError {
             Log.debug(message: error.description)
-            return ""
+            return nil
         }
     }
     

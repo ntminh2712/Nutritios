@@ -51,6 +51,7 @@ class LoginPresenterImplementation: LoginPresenter {
             case let .success(data):
                 if data.status == CodeResponse.success {
                     LoginEntity.saveToken(data.token)
+                    self.addNotification()
                     self.router.presentHome()
                 }else {
                     self.view?.handleError(title: "Error", content: data.message)
@@ -68,9 +69,14 @@ class LoginPresenterImplementation: LoginPresenter {
             loginGateway?.addNotification(fcmToken: fcmToken, completionHandler: { (result) in
                 switch (result){
                 case let .success(data):
+                    if data.status == CodeResponse.success {
                     print("add notification success")
+                    }else {
+                        print("add notification error")
+                    }
+                    
                 case let .failure(error):
-                    print("add notification error")
+                    
                     self.view?.handleError(title: NSLocalizedString("announce", comment: ""), content: error.localizedDescription)
                 }
             })
