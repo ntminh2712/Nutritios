@@ -22,24 +22,25 @@
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background_home" translatesAutoresizingMaskIntoConstraints="NO" id="qan-A4-QwA">
                         <rect key="frame" x="0.0" y="0.0" width="439" height="216.5"/>
                     </imageView>
-                    <view alpha="0.29999999999999999" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KlK-ps-Z6w">
+                    <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KlK-ps-Z6w">
                         <rect key="frame" x="0.0" y="0.0" width="439" height="216.5"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Đồ Ăn Tươi Ngon Bổ Dưỡng" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z4m-Vd-kw1">
-                        <rect key="frame" x="25" y="52" width="389" height="33"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Đồ Ăn Tươi Ngon Bổ Dưỡng" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z4m-Vd-kw1">
+                        <rect key="frame" x="25" y="42" width="389" height="32.5"/>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="27"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AnLanhManh sẽ cung cấp cho bạn tất cả thứ đó" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1k0-9X-1mo">
-                        <rect key="frame" x="25" y="95" width="389" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1k0-9X-1mo">
+                        <rect key="frame" x="25" y="84.5" width="389" height="61"/>
+                        <string key="text">AnLanhManh sẽ cung cấp cho bạn tất cả thứ đóAnLanhManh sẽ cung cấp cho bạn tất cả thứ đóAnLanhManh sẽ cung cấp cho bạn tất cả thứ đó</string>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o5V-L1-o0U" customClass="CardImage" customModule="Nutritious" customModuleProvider="target">
-                        <rect key="frame" x="138.5" y="131" width="162" height="40"/>
+                        <rect key="frame" x="138.5" y="160.5" width="162" height="40"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Khám Phá Ngay" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tud-x9-j7d">
                                 <rect key="frame" x="20" y="9.5" width="122" height="21"/>
@@ -47,13 +48,23 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QjK-J7-A0S">
+                                <rect key="frame" x="0.0" y="0.0" width="162" height="40"/>
+                                <connections>
+                                    <action selector="openWeb:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="6S8-n5-pmV"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.27162015439999998" green="0.78916794059999995" blue="0.47937321659999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="Tud-x9-j7d" secondAttribute="trailing" constant="20" id="0KC-6a-qUI"/>
+                            <constraint firstItem="QjK-J7-A0S" firstAttribute="width" secondItem="o5V-L1-o0U" secondAttribute="width" id="1yD-y9-SYN"/>
                             <constraint firstAttribute="height" constant="40" id="5Vq-xf-dym"/>
                             <constraint firstItem="Tud-x9-j7d" firstAttribute="centerY" secondItem="o5V-L1-o0U" secondAttribute="centerY" id="Aii-Oh-ktn"/>
+                            <constraint firstItem="QjK-J7-A0S" firstAttribute="centerX" secondItem="o5V-L1-o0U" secondAttribute="centerX" id="TL5-AS-84D"/>
+                            <constraint firstItem="QjK-J7-A0S" firstAttribute="height" secondItem="o5V-L1-o0U" secondAttribute="height" id="WMY-gc-bJ2"/>
                             <constraint firstItem="Tud-x9-j7d" firstAttribute="centerX" secondItem="o5V-L1-o0U" secondAttribute="centerX" id="Z9u-Fm-KiU"/>
+                            <constraint firstItem="QjK-J7-A0S" firstAttribute="centerY" secondItem="o5V-L1-o0U" secondAttribute="centerY" id="lXJ-7t-WOP"/>
                             <constraint firstItem="Tud-x9-j7d" firstAttribute="leading" secondItem="o5V-L1-o0U" secondAttribute="leading" constant="20" id="qyP-LK-gff"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
@@ -67,7 +78,7 @@
                     <constraint firstItem="Z4m-Vd-kw1" firstAttribute="centerX" secondItem="KlK-ps-Z6w" secondAttribute="centerX" id="6cL-hE-Jww"/>
                     <constraint firstItem="1k0-9X-1mo" firstAttribute="top" secondItem="Z4m-Vd-kw1" secondAttribute="bottom" constant="10" id="92C-mv-Z7h"/>
                     <constraint firstItem="KlK-ps-Z6w" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="A6a-XU-Aki"/>
-                    <constraint firstItem="Z4m-Vd-kw1" firstAttribute="centerY" secondItem="KlK-ps-Z6w" secondAttribute="centerY" constant="-40" id="Aa7-6P-mku"/>
+                    <constraint firstItem="Z4m-Vd-kw1" firstAttribute="centerY" secondItem="KlK-ps-Z6w" secondAttribute="centerY" constant="-50" id="Aa7-6P-mku"/>
                     <constraint firstItem="1k0-9X-1mo" firstAttribute="leading" secondItem="Z4m-Vd-kw1" secondAttribute="leading" id="HHD-be-Jm5"/>
                     <constraint firstAttribute="trailing" secondItem="KlK-ps-Z6w" secondAttribute="trailing" id="Ijc-ZX-7jP"/>
                     <constraint firstItem="o5V-L1-o0U" firstAttribute="centerX" secondItem="KlK-ps-Z6w" secondAttribute="centerX" id="JOw-LC-pe0"/>
@@ -84,6 +95,11 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="imgBackground" destination="qan-A4-QwA" id="2jr-dh-78u"/>
+                <outlet property="lbDescription" destination="1k0-9X-1mo" id="tFW-se-HZM"/>
+                <outlet property="lbTitle" destination="Z4m-Vd-kw1" id="X7F-uZ-ljF"/>
+            </connections>
             <point key="canvasLocation" x="65.94202898550725" y="143.63839285714286"/>
         </tableViewCell>
     </objects>

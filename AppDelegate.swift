@@ -21,8 +21,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         // Override point for customization after application launch.
         FirebaseApp.configure() // gọi hàm để cấu hình 1 app Firebase mặc định
         Messaging.messaging().delegate = self //Nhận các message từ FirebaseMessaging
-        configApplePush(application)
         checkLogin()
+        configApplePush(application)
         return true
     }
     
@@ -65,11 +65,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         
         if let token = Messaging.messaging().fcmToken {
             print("FCM token: \(token)")
-            //            AppSession.shared.setFirebaseToken(token)
+            
         }
     }
     
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String) {
+        print("FCM token: \(fcmToken)")
         FcmTokenEntity.saveFcmToken(fcmToken)
     }
     

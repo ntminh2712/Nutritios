@@ -1,20 +1,25 @@
 {
-    "data": {
-        "user": {
-            "id": "5ba47240a1452e1cfa2f6885",
-            "email": "minhnt.contact@gmail.com",
-            "phone": "0966578304",
-            "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1Mzc1MDM4MDgsImlzcyI6Imh0dHA6XC9cL2VjMi0xOC0yMjMtMTU1LTIyNC51cy1lYXN0LTIuY29tcHV0ZS5hbWF6b25hd3MuY29tIiwiYXVkIjoiaHR0cDpcL1wvZWMyLTE4LTIyMy0xNTUtMjI0LnVzLWVhc3QtMi5jb21wdXRlLmFtYXpvbmF3cy5jb20iLCJuYmYiOjE1Mzc1MDM4MDgsImV4cCI6MTU0MDA5NTgwOCwiZGF0YSI6eyJ1c2VybmFtZSI6InBoYW52YW5ob2FuNTRjbnR0QGdtYWlsLmNvbSIsImxhc3RMb2dpbkF0IjoxNTM3NTAzODA4fSwianRpIjp7IiRvaWQiOiI1YmE0NzI0MGExNDUyZTFjZmEyZjY4ODUifX0.30B68WLz0d_3ySpgcLrRU8IEncAhMnAvlcwoPvlknCk",
-            "created_at": "2018-09-21 04:23:28",
-            "updated_at": "2018-09-21 06:12:18",
-            "profile": {
-                "name": "Tuấn Minh",
-                "public_email": "minhnt.contact@gmail.com",
-                "avatar": null,
-                "location": null,
-                "website": null
-            }
+    "discover":[
+        {
+            "id": 1,
+            "name": "Lịch sử ăn uống",
+            "description": "Bạn có thể theo dõi lịch trình ăn uống của bạn để có thể biết tình trạng sức khoẻ của bạn",
+            "url": "http://anlanhmanh.com",
+            "image": "https://media.ex-cdn.com/EXP/media.giadinhmoi.vn/files/nguyenquyet/2017/10/08/chuan-bi-thuc-an-cho-ca-tuan-0846.jpg"
+        },
+        {
+            "id": 2,
+            "name": "Lịch sử đặt hàng",
+            "description": "Thống kê lại các giao dịch bạn của bạn và trạng thái giao dịch.",
+            "url": "http://anlanhmanh.com",
+            "image": "https://bongrotv.net/wp-content/uploads/2019/03/che-do-dinh-duong-cho-nguoi-choi-the-thao.jpg",
+        },
+        {
+            "id": 3,
+            "name": "Lộ trình ăn uống dành cho bạn",
+            "description": "Cuộc sống hiện đại và công việc bận rộn khiến bạn ít có thời gian dành cho việc nấu nướng",
+            "url": "http://anlanhmanh.com",
+            "image": "https://media.ex-cdn.com/EXP/media.phunutoday.vn/files/hienvan/2018/01/13/3-1053-phunutoday.jpg"
         }
-    },
-    "status": 200
+    ]
 }

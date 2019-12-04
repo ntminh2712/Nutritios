@@ -38,6 +38,7 @@ class CartPresenterImplementation: CartPresenter {
     var listFoodInCart:[FoodDetailEntity] = []
     var listSetInCart:[SetDetailEntity] = []
     
+    var listOrder:[OrderDetailEntity] = []
     //MARK: Injections
     private var view: CartView?
     var router: CartViewRouter
@@ -123,8 +124,15 @@ class CartPresenterImplementation: CartPresenter {
         FoodDetailEntity.deleteAll()
     }
     
-    func presentExample(leaguesId: Int){
-//        self.router.presentLeaguesDetail(leaguesId: leaguesId)
+    func checkout(){
+        for food in listFoodInCart {
+            let order:OrderDetailEntity = OrderDetailEntity(foodId: food.id, commbo: nil, scheduleId: nil, quantity: food.quantity,price: food.price)
+            listOrder.append(order)
+        }
+        for set in listSetInCart {
+            let order:OrderDetailEntity = OrderDetailEntity(foodId: nil , commbo: set.id, scheduleId: nil, quantity: set.quantity,price: set.price)
+            listOrder.append(order)
+        }
     }
     
     func presentFoodDetail(food:FoodDetailEntity){

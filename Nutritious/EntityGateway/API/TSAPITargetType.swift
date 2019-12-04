@@ -30,12 +30,14 @@ extension TSAPI:TargetType
             return "/combo/\(setId)"
         case .addNotification:
             return "/devices"
+        case .order:
+            return "/api/order"
         }
     }
     
     var method: Moya.Method {
         switch self {
-        case .login, .addNotification:
+        case .login, .addNotification, .order:
             return .post
         case .getCategory, .getSuggestSet, .getSetDetail:
             return .get
@@ -80,6 +82,14 @@ extension TSAPI:TargetType
                 return parameter
             }
             return paramester
+        case .order(let addressId, let listOrder):
+            var paramester: [String: Any]?{
+                var parameter:[String:Any] = [:]
+                parameter["address"] = addressId
+                parameter["orderDetails"] = listOrder
+                return parameter
+            }
+            return paramester
         default:
             return [:]
         }
@@ -89,16 +99,24 @@ extension TSAPI:TargetType
     }
     
     var headers: [String : String]? {
-        let token = "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI2IiwiaWF0IjoxNTc0NzUzMTk2LCJleHAiOjE1NzUzNTc5OTZ9.amBTcwUiGG0hQrBJGj8zpcwY-CZuKJryVV1-_bZynom6AgxUDU9auPE6YD8ZVRsb3Ko1HAivI2xpT0G-uvmllQ"
-        
         switch self {
-        case  .getCategory, .addNotification, .getSuggestSet, .getSetDetail:
+        case  .getCategory, .getSuggestSet, .getSetDetail:
             var header: [String:String]?{
                 var header: [String:String] = [:]
                 if let token = LoginEntity.getToken() {
                     header["Authorization"] = token
                 }
                 header["Content-Type"] = "application/x-www-form-urlencoded"
+                return header
+            }
+            return header
+        case .addNotification, .order:
+            var header: [String:String]?{
+                var header: [String:String] = [:]
+                if let token = LoginEntity.getToken() {
+                    header["Authorization"] = token
+                }
+                header["Content-Type"] = "application/json"
                 return header
             }
             return header

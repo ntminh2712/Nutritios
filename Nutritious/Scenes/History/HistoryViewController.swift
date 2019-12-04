@@ -35,21 +35,30 @@ class HistoryViewController: BaseViewController, HistoryView {
     func handleError(title: String, content: String) {
         
     }
+    
+    func reloadTableView() {
+        tbDiscover.reloadData()
+    }
 }
 
 // MARK: - HistoryPresenterOutput
 extension HistoryViewController: UITableViewDataSource, UITableViewDelegate  {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return presenter.numberOfList
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "historyTableViewCell") as! HistoryTableViewCell
+        cell.setData(data: presenter.getItemOfList(row: indexPath.row))
+        cell.openWeb = {[weak self] in
+            guard let url = URL(string: (self?.presenter.getItemOfList(row: indexPath.row).url)!) else { return }
+            UIApplication.shared.open(url)
+        }
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 180
+        return 200
     }
     
 
