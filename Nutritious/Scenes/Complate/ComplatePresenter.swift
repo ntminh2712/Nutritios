@@ -77,7 +77,7 @@ class ComplatePresenterImplementation: ComplatePresenter {
                 }else {
                     self.view?.handleError(title: "Error", content: data.message)
                 }
-                self.view?.orderSuccess()
+                
                 break
             case let .failure(error):
                 LoadingHUDControl.sharedManager.hideLoadingHud()

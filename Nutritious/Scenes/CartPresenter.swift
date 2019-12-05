@@ -128,11 +128,11 @@ class CartPresenterImplementation: CartPresenter {
     
     func checkout(){
         for food in listFoodInCart {
-            let order:OrderDetailEntity = OrderDetailEntity(foodId: food.id, commbo: nil, scheduleId: nil, quantity: food.quantity,price: food.price)
+            let order:OrderDetailEntity = OrderDetailEntity(foodId: (food.id), commbo: nil, quantity: food.quantity)
             listOrder.append(order)
         }
         for set in listSetInCart {
-            let order:OrderDetailEntity = OrderDetailEntity(foodId: nil , commbo: set.id, scheduleId: nil, quantity: set.quantity,price: set.price)
+            let order:OrderDetailEntity = OrderDetailEntity(foodId: nil , commbo: set.id, quantity: set.quantity)
             listOrder.append(order)
         }
     }
@@ -146,7 +146,7 @@ class CartPresenterImplementation: CartPresenter {
     }
     func presentComplate() {
         checkout()
-        self.router.presentComplate(listOrder: "listOrder")
+        self.router.presentComplate(listOrder: "\(listOrder)")
     }
 }
 

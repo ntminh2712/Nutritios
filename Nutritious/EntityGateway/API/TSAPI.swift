@@ -29,7 +29,5 @@ struct OrderEntity {
 struct OrderDetailEntity {
     var foodId:Int?
     var commbo:Int?
-    var scheduleId:Int?
     var quantity:Int?
-    var price:Float?
 }

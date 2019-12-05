@@ -54,7 +54,7 @@ class ComplateViewController: BaseViewController, ComplateView {
         
     }
     @IBAction func back(_ sender: Any) {
-        self.navigationController?.popViewController(animated:  )
+        self.navigationController?.popViewController(animated: true)
     }
     
     func orderSuccess() {
@@ -65,6 +65,10 @@ class ComplateViewController: BaseViewController, ComplateView {
         animationView.loopMode = .playOnce
         self.view.addSubview(animationView)
         animationView.play()
+        animationView.play(completion: { (completed) in
+            animationView.isHidden = true
+            self.navigationController?.popViewController(animated: true)
+        })
     }
     func setAddress(data:AddressDetailEntity){
         tfAddress.text = data.title
