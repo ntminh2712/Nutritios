@@ -19,7 +19,8 @@ class ComplateConfigurator: ComplateConfigurable {
     
         let router = ComplateRouterImplemetation(viewController: viewController)
 //        let exploreGateway = ApiExploreGatewayImplementation()
-        let presenter = ComplatePresenterImplementation(view:viewController,router: router)
+        let orderGateway = ApiOrderGatewayImplementation()
+        let presenter = ComplatePresenterImplementation(view:viewController,router: router, orderGateway: orderGateway)
         
         viewController.presenter = presenter
 

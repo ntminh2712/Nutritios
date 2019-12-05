@@ -73,7 +73,7 @@ extension ListCategoryViewController: UITableViewDataSource, UITableViewDelegate
             cell.setData(data: self.presenter.getDataFood(row: indexPath.row))
             cell.addToCart = {[weak self] in
                 self?.presenter.addFoodToCart(row: indexPath.row)
-                self?.showToast(message: "Add food success")
+                self?.showToast(message: "Thêm món ăn thành công")
             }
             cell.clickFood = {[weak self] in
                 self?.presenter.presentFoodDetail(row: indexPath.row)
@@ -84,7 +84,7 @@ extension ListCategoryViewController: UITableViewDataSource, UITableViewDelegate
             cell.setData(data: self.presenter.getDataSet(row: indexPath.row))
             cell.addToCart = {[weak self] in
                 self?.presenter.addSetToCart(row: indexPath.row)
-                self?.showToast(message: "Add set success")
+                self?.showToast(message: "Thêm món ăn thành công")
             }
             cell.clickFood = {[weak self] in
                 self?.presenter.presentSetDetail(row: indexPath.row)

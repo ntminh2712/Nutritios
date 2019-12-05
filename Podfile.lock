@@ -81,6 +81,7 @@ PODS:
   - IQKeyboardManager (6.5.4)
   - Kingfisher (4.8.0)
   - KUIPopOver (1.2.0)
+  - lottie-ios (3.1.5)
   - Moya (10.0.2):
     - Moya/Core (= 10.0.2)
   - Moya/Core (10.0.2):
@@ -96,7 +97,7 @@ PODS:
   - nanopb/decode (0.3.9011)
   - nanopb/encode (0.3.9011)
   - ObjectMapper (3.5.1)
-  - Protobuf (3.11.0)
+  - Protobuf (3.11.1)
   - Realm (4.1.1):
     - Realm/Headers (= 4.1.1)
   - Realm/Headers (4.1.1)
@@ -120,6 +121,7 @@ DEPENDENCIES:
   - IQKeyboardManager
   - Kingfisher (= 4.8.0)
   - KUIPopOver
+  - lottie-ios
   - Moya (= 10.0.2)
   - MXParallaxHeader
   - MZFormSheetPresentationController
@@ -130,7 +132,7 @@ DEPENDENCIES:
   - SnapKit (~> 4.0.0)
 
 SPEC REPOS:
-  trunk:
+  https://github.com/cocoapods/specs.git:
     - ACTabScrollView
     - Alamofire
     - ALLoadingView
@@ -151,6 +153,7 @@ SPEC REPOS:
     - IQKeyboardManager
     - Kingfisher
     - KUIPopOver
+    - lottie-ios
     - Moya
     - MXParallaxHeader
     - MZAppearance
@@ -186,13 +189,14 @@ SPEC CHECKSUMS:
   IQKeyboardManager: 72b359cd7e777e3a984cedbe05f8da45320cbb63
   Kingfisher: 976d828df2b24834c6a3f2fc4d82cdbd26552be1
   KUIPopOver: 71644b6a9219a1d175aba44e06d02f1b70aa4b77
+  lottie-ios: 32bf84389337d86fbc8b12266e88452e0abf1dee
   Moya: 2b0531a9fef318e0bc484030c3db1e6f279ccb66
   MXParallaxHeader: de3c867e10ba46e8f6e20c8ee1f2a910372b3b94
   MZAppearance: 0c06d3fa9cc55142f1da14bc8631fbe8fd6e19d5
   MZFormSheetPresentationController: fbfdbad31884f16fac17fbe3c44c168306cc1095
   nanopb: 18003b5e52dab79db540fe93fe9579f399bd1ccd
   ObjectMapper: 70187b8941977c62ccfb423caf6b50be405cabf0
-  Protobuf: 394b2bf29ec303f4325e3ee4892c09e675647152
+  Protobuf: 20d79da7f20b5928b80043b05080b816e802659e
   Realm: 25f0a8244cbb1c2271c922963ea8666fc2d8104d
   RealmSwift: 9e2657b33764f80e4a4dffd6d440e24715782052
   Result: d2d07204ce72856f1fd9130bbe42c35a7b0fea10
@@ -200,6 +204,6 @@ SPEC CHECKSUMS:
   RxSwift: f172070dfd1a93d70a9ab97a5a01166206e1c575
   SnapKit: 0de968a9fec17499afa29683b05d0c775b6d1c29
 
-PODFILE CHECKSUM: 33b51f2b5bd9d003f8cb8da5848937ad8502ff70
+PODFILE CHECKSUM: 9a7f7ea1951d51e06548c5bad8656a835ce0fc3d
 
-COCOAPODS: 1.8.4
+COCOAPODS: 1.7.5

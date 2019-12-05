@@ -16,7 +16,9 @@ enum TSAPI
     case getSuggestSet
     case addNotification(String)
     case getSetDetail(Int)
-    case order(Int,String)
+    case order(Int,String,String)
+    case addAddress(String,String,String)
+    case getAddress
 }
  
 struct OrderEntity {

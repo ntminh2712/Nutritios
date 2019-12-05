@@ -10,16 +10,21 @@
 		0E2D66C3C2E1E5B3B839052B /* Pods_Nutritious.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB7664063AE413E8B1649233 /* Pods_Nutritious.framework */; };
 		4C4F9DF72397B41C000C9E0D /* OrderGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4F9DF62397B41C000C9E0D /* OrderGateway.swift */; };
 		4C4F9DF92397B494000C9E0D /* ApiOrderGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4F9DF82397B494000C9E0D /* ApiOrderGateway.swift */; };
-		4C4F9DFF2397C91B000C9E0D /* ComplatePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4F9DFB2397C91B000C9E0D /* ComplatePresenter.swift */; };
-		4C4F9E002397C91B000C9E0D /* ComplateRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4F9DFC2397C91B000C9E0D /* ComplateRouter.swift */; };
-		4C4F9E012397C91B000C9E0D /* ComplateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4F9DFD2397C91B000C9E0D /* ComplateViewController.swift */; };
-		4C4F9E022397C91B000C9E0D /* ComplateConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4F9DFE2397C91B000C9E0D /* ComplateConfigurator.swift */; };
 		4C509FDC2394C1E50008BD6B /* SetDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C509FD82394C1E50008BD6B /* SetDetailPresenter.swift */; };
 		4C509FDD2394C1E50008BD6B /* SetDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C509FD92394C1E50008BD6B /* SetDetailRouter.swift */; };
 		4C509FDE2394C1E50008BD6B /* SetDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C509FDA2394C1E50008BD6B /* SetDetailViewController.swift */; };
 		4C509FDF2394C1E50008BD6B /* SetDetailConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C509FDB2394C1E50008BD6B /* SetDetailConfigurator.swift */; };
 		4C57A03A2397597A0033DCF2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4C57A0392397597A0033DCF2 /* GoogleService-Info.plist */; };
 		4C57A03D23976CEF0033DCF2 /* DiscoveryEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C57A03C23976CEF0033DCF2 /* DiscoveryEntity.swift */; };
+		4C7A21882398EA84007BC471 /* AddressEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7A21872398EA84007BC471 /* AddressEntity.swift */; };
+		4C7A218A2398EAB4007BC471 /* AddressDetailEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7A21892398EAB4007BC471 /* AddressDetailEntity.swift */; };
+		4C7A218E2398FEA1007BC471 /* success.json in Resources */ = {isa = PBXBuildFile; fileRef = 4C7A218D2398FEA1007BC471 /* success.json */; };
+		4C7A219623991388007BC471 /* ComplatePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7A219223991387007BC471 /* ComplatePresenter.swift */; };
+		4C7A219723991388007BC471 /* ComplateConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7A219323991387007BC471 /* ComplateConfigurator.swift */; };
+		4C7A219823991388007BC471 /* ComplateRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7A219423991387007BC471 /* ComplateRouter.swift */; };
+		4C7A219923991388007BC471 /* ComplateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7A219523991387007BC471 /* ComplateViewController.swift */; };
+		4C7A219D2399139F007BC471 /* AddressTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7A219B2399139F007BC471 /* AddressTableViewCell.swift */; };
+		4C7A219E2399139F007BC471 /* AddressTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C7A219C2399139F007BC471 /* AddressTableViewCell.xib */; };
 		4CB83CCA238E283F000EB2E7 /* CategoryGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB83C7B238E283F000EB2E7 /* CategoryGateway.swift */; };
 		4CB83CCB238E283F000EB2E7 /* LoginGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB83C7C238E283F000EB2E7 /* LoginGateway.swift */; };
 		4CB83CCC238E283F000EB2E7 /* ApiLoginGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB83C7E238E283F000EB2E7 /* ApiLoginGateway.swift */; };
@@ -120,16 +125,21 @@
 /* Begin PBXFileReference section */
 		4C4F9DF62397B41C000C9E0D /* OrderGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderGateway.swift; sourceTree = "<group>"; };
 		4C4F9DF82397B494000C9E0D /* ApiOrderGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiOrderGateway.swift; sourceTree = "<group>"; };
-		4C4F9DFB2397C91B000C9E0D /* ComplatePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplatePresenter.swift; sourceTree = "<group>"; };
-		4C4F9DFC2397C91B000C9E0D /* ComplateRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplateRouter.swift; sourceTree = "<group>"; };
-		4C4F9DFD2397C91B000C9E0D /* ComplateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplateViewController.swift; sourceTree = "<group>"; };
-		4C4F9DFE2397C91B000C9E0D /* ComplateConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplateConfigurator.swift; sourceTree = "<group>"; };
 		4C509FD82394C1E50008BD6B /* SetDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetDetailPresenter.swift; sourceTree = "<group>"; };
 		4C509FD92394C1E50008BD6B /* SetDetailRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetDetailRouter.swift; sourceTree = "<group>"; };
 		4C509FDA2394C1E50008BD6B /* SetDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetDetailViewController.swift; sourceTree = "<group>"; };
 		4C509FDB2394C1E50008BD6B /* SetDetailConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetDetailConfigurator.swift; sourceTree = "<group>"; };
 		4C57A0392397597A0033DCF2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4C57A03C23976CEF0033DCF2 /* DiscoveryEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoveryEntity.swift; sourceTree = "<group>"; };
+		4C7A21872398EA84007BC471 /* AddressEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressEntity.swift; sourceTree = "<group>"; };
+		4C7A21892398EAB4007BC471 /* AddressDetailEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressDetailEntity.swift; sourceTree = "<group>"; };
+		4C7A218D2398FEA1007BC471 /* success.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = success.json; path = Nutritious/Helper/success.json; sourceTree = SOURCE_ROOT; };
+		4C7A219223991387007BC471 /* ComplatePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComplatePresenter.swift; sourceTree = "<group>"; };
+		4C7A219323991387007BC471 /* ComplateConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComplateConfigurator.swift; sourceTree = "<group>"; };
+		4C7A219423991387007BC471 /* ComplateRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComplateRouter.swift; sourceTree = "<group>"; };
+		4C7A219523991387007BC471 /* ComplateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComplateViewController.swift; sourceTree = "<group>"; };
+		4C7A219B2399139F007BC471 /* AddressTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressTableViewCell.swift; sourceTree = "<group>"; };
+		4C7A219C2399139F007BC471 /* AddressTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddressTableViewCell.xib; sourceTree = "<group>"; };
 		4CB83C7B238E283F000EB2E7 /* CategoryGateway.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryGateway.swift; sourceTree = "<group>"; };
 		4CB83C7C238E283F000EB2E7 /* LoginGateway.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginGateway.swift; sourceTree = "<group>"; };
 		4CB83C7E238E283F000EB2E7 /* ApiLoginGateway.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiLoginGateway.swift; sourceTree = "<group>"; };
@@ -261,17 +271,6 @@
 			name = Order;
 			sourceTree = "<group>";
 		};
-		4C4F9DFA2397C8D2000C9E0D /* Complate */ = {
-			isa = PBXGroup;
-			children = (
-				4C4F9DFB2397C91B000C9E0D /* ComplatePresenter.swift */,
-				4C4F9DFC2397C91B000C9E0D /* ComplateRouter.swift */,
-				4C4F9DFD2397C91B000C9E0D /* ComplateViewController.swift */,
-				4C4F9DFE2397C91B000C9E0D /* ComplateConfigurator.swift */,
-			);
-			name = Complate;
-			sourceTree = "<group>";
-		};
 		4C509FD72394C1D50008BD6B /* Set */ = {
 			isa = PBXGroup;
 			children = (
@@ -289,6 +288,36 @@
 				4C57A03C23976CEF0033DCF2 /* DiscoveryEntity.swift */,
 			);
 			name = Discovery;
+			sourceTree = "<group>";
+		};
+		4C7A21842398EA5E007BC471 /* Address */ = {
+			isa = PBXGroup;
+			children = (
+				4C7A21872398EA84007BC471 /* AddressEntity.swift */,
+				4C7A21892398EAB4007BC471 /* AddressDetailEntity.swift */,
+			);
+			path = Address;
+			sourceTree = "<group>";
+		};
+		4C7A219123991387007BC471 /* Complate */ = {
+			isa = PBXGroup;
+			children = (
+				4C7A219A2399138B007BC471 /* Cell */,
+				4C7A219223991387007BC471 /* ComplatePresenter.swift */,
+				4C7A219323991387007BC471 /* ComplateConfigurator.swift */,
+				4C7A219423991387007BC471 /* ComplateRouter.swift */,
+				4C7A219523991387007BC471 /* ComplateViewController.swift */,
+			);
+			path = Complate;
+			sourceTree = "<group>";
+		};
+		4C7A219A2399138B007BC471 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				4C7A219B2399139F007BC471 /* AddressTableViewCell.swift */,
+				4C7A219C2399139F007BC471 /* AddressTableViewCell.xib */,
+			);
+			name = Cell;
 			sourceTree = "<group>";
 		};
 		4CB83C62238E283F000EB2E7 /* Nutritious */ = {
@@ -310,7 +339,7 @@
 		4CB83C63238E283F000EB2E7 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				4C4F9DFA2397C8D2000C9E0D /* Complate */,
+				4C7A219123991387007BC471 /* Complate */,
 				4C509FD72394C1D50008BD6B /* Set */,
 				AB8E57E02392CDFD00FB85E5 /* ListCategory */,
 				4CEEFFA32390CA1A0015A0DD /* Cart */,
@@ -360,6 +389,7 @@
 		4CB83C80238E283F000EB2E7 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				4C7A21842398EA5E007BC471 /* Address */,
 				4C4F9DF52397B3FF000C9E0D /* Order */,
 				4C57A03B23976CDE0033DCF2 /* Discovery */,
 				4CB83C81238E283F000EB2E7 /* Food */,
@@ -456,6 +486,7 @@
 		4CB83C94238E283F000EB2E7 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				4C7A218D2398FEA1007BC471 /* success.json */,
 				4CB83C95238E283F000EB2E7 /* Extension */,
 				4CB83CA0238E283F000EB2E7 /* Downloader.swift */,
 				4CB83CA1238E283F000EB2E7 /* Demo.json */,
@@ -809,9 +840,11 @@
 			files = (
 				4CED056D238B891500E140DF /* LaunchScreen.storyboard in Resources */,
 				4CED0568238B891000E140DF /* Main.storyboard in Resources */,
+				4C7A219E2399139F007BC471 /* AddressTableViewCell.xib in Resources */,
 				4CEEFF8D2390BE830015A0DD /* MicronutrientsCollectionViewCell.xib in Resources */,
 				4CEEFFA82390CAF80015A0DD /* CartFoodTableViewCell.xib in Resources */,
 				4CED056A238B891500E140DF /* Assets.xcassets in Resources */,
+				4C7A218E2398FEA1007BC471 /* success.json in Resources */,
 				4CB83CE2238E283F000EB2E7 /* Demo.json in Resources */,
 				4C57A03A2397597A0033DCF2 /* GoogleService-Info.plist in Resources */,
 				4CEEFFA02390BF0C0015A0DD /* HistoryTableViewCell.xib in Resources */,
@@ -890,7 +923,6 @@
 				4CB83CE4238E283F000EB2E7 /* Config.swift in Sources */,
 				4CB83CD7238E283F000EB2E7 /* UIDevice+Extension.swift in Sources */,
 				AB8E57E82392CE0B00FB85E5 /* ListCategoryRouter.swift in Sources */,
-				4C4F9DFF2397C91B000C9E0D /* ComplatePresenter.swift in Sources */,
 				4C4F9DF92397B494000C9E0D /* ApiOrderGateway.swift in Sources */,
 				4CEEFFAE2390D6170015A0DD /* CartRouter.swift in Sources */,
 				4CB83CE3238E283F000EB2E7 /* Result.swift in Sources */,
@@ -904,8 +936,10 @@
 				4CB83CDD238E283F000EB2E7 /* String+Extension.swift in Sources */,
 				4CEEFF9F2390BF0C0015A0DD /* HistoryTableViewCell.swift in Sources */,
 				4CEEFF902390BE830015A0DD /* LoginPresenter.swift in Sources */,
+				4C7A219623991388007BC471 /* ComplatePresenter.swift in Sources */,
 				AB8E57EC2392DBD900FB85E5 /* SetGateway.swift in Sources */,
 				4CEEFF932390BE830015A0DD /* CategoryPresenter.swift in Sources */,
+				4C7A219823991388007BC471 /* ComplateRouter.swift in Sources */,
 				4CEEFF8E2390BE830015A0DD /* LoginConfigurator.swift in Sources */,
 				4CEEFFAD2390D6170015A0DD /* CartPresenter.swift in Sources */,
 				4CB83CE0238E283F000EB2E7 /* Array+Extension.swift in Sources */,
@@ -929,6 +963,7 @@
 				4CEEFF7B2390BE830015A0DD /* MainTapViewController.swift in Sources */,
 				4CEEFFB02390D6170015A0DD /* CartConfigurator.swift in Sources */,
 				4C509FDF2394C1E50008BD6B /* SetDetailConfigurator.swift in Sources */,
+				4C7A219D2399139F007BC471 /* AddressTableViewCell.swift in Sources */,
 				AB8E57E92392CE0B00FB85E5 /* ListCategoryViewController.swift in Sources */,
 				4CB83CE9238E283F000EB2E7 /* ViewRouter.swift in Sources */,
 				4CB83CCF238E283F000EB2E7 /* FoodDetailEntity.swift in Sources */,
@@ -938,12 +973,13 @@
 				4CEEFF782390BE830015A0DD /* MainTapRouter.swift in Sources */,
 				4CEEFFAF2390D6170015A0DD /* CartViewController.swift in Sources */,
 				4CB83CEC238E283F000EB2E7 /* EmptySegue.swift in Sources */,
+				4C7A21882398EA84007BC471 /* AddressEntity.swift in Sources */,
 				AB8E57F12392E07700FB85E5 /* FcmTokenEntity.swift in Sources */,
 				4CB83CCC238E283F000EB2E7 /* ApiLoginGateway.swift in Sources */,
 				4CB83CF0238E283F000EB2E7 /* TSAPITargetType.swift in Sources */,
+				4C7A218A2398EAB4007BC471 /* AddressDetailEntity.swift in Sources */,
 				4CEEFF982390BE830015A0DD /* ProfilePresenter.swift in Sources */,
 				4CEEFF8C2390BE830015A0DD /* MicronutrientsCollectionViewCell.swift in Sources */,
-				4C4F9E002397C91B000C9E0D /* ComplateRouter.swift in Sources */,
 				4CB83CE8238E283F000EB2E7 /* LoadingHUDControl.swift in Sources */,
 				4CEEFF832390BE830015A0DD /* SetCollectionViewCell.swift in Sources */,
 				4CB83CEE238E283F000EB2E7 /* RealmConnectorManager.swift in Sources */,
@@ -959,11 +995,11 @@
 				4CB83CDC238E283F000EB2E7 /* NumberFormatter+Extension.swift in Sources */,
 				4CB83CF1238E283F000EB2E7 /* TSAPI.swift in Sources */,
 				4CEEFF802390BE830015A0DD /* HomeConfigurator.swift in Sources */,
+				4C7A219923991388007BC471 /* ComplateViewController.swift in Sources */,
 				4CEEFF872390BE830015A0DD /* HomePresenter.swift in Sources */,
 				4CB83CCD238E283F000EB2E7 /* ApiCategoryGateway.swift in Sources */,
-				4C4F9E012397C91B000C9E0D /* ComplateViewController.swift in Sources */,
 				4CEEFF882390BE830015A0DD /* FoodDetailConfigurator.swift in Sources */,
-				4C4F9E022397C91B000C9E0D /* ComplateConfigurator.swift in Sources */,
+				4C7A219723991388007BC471 /* ComplateConfigurator.swift in Sources */,
 				4CEEFF952390BE830015A0DD /* CategoryViewController.swift in Sources */,
 				4CB83CD3238E283F000EB2E7 /* CategoryEntity.swift in Sources */,
 			);

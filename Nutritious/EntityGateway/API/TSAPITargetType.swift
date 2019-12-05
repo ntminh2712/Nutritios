@@ -31,15 +31,19 @@ extension TSAPI:TargetType
         case .addNotification:
             return "/devices"
         case .order:
-            return "/api/order"
+            return "/order"
+        case .addAddress:
+            return "/address"
+        case .getAddress:
+            return "/address"
         }
     }
     
     var method: Moya.Method {
         switch self {
-        case .login, .addNotification, .order:
+        case .login, .addNotification, .order, .addAddress:
             return .post
-        case .getCategory, .getSuggestSet, .getSetDetail:
+        case .getCategory, .getSuggestSet, .getSetDetail,.getAddress:
             return .get
         }
     }
@@ -47,7 +51,7 @@ extension TSAPI:TargetType
     
     public var parameterEncoding: ParameterEncoding {
         switch self {
-        case .getCategory, .getSuggestSet, .getSetDetail:
+        case .getCategory, .getSuggestSet, .getSetDetail,  .getAddress:
             return URLEncoding.default
         default:
             return JSONEncoding.default
@@ -82,11 +86,22 @@ extension TSAPI:TargetType
                 return parameter
             }
             return paramester
-        case .order(let addressId, let listOrder):
+        case .order(let addressId, let listOrder, let note):
             var paramester: [String: Any]?{
                 var parameter:[String:Any] = [:]
                 parameter["address"] = addressId
+                parameter["note"] = note
+                parameter["type"] = 1
                 parameter["orderDetails"] = listOrder
+                return parameter
+            }
+            return paramester
+        case .addAddress(let title, let content, let phone):
+            var paramester: [String: Any]?{
+                var parameter:[String:Any] = [:]
+                parameter["title"] = title
+                parameter["content"] = content
+                parameter["phone"] = phone
                 return parameter
             }
             return paramester
@@ -110,7 +125,7 @@ extension TSAPI:TargetType
                 return header
             }
             return header
-        case .addNotification, .order:
+        case .addNotification, .order, .addAddress, .getAddress:
             var header: [String:String]?{
                 var header: [String:String] = [:]
                 if let token = LoginEntity.getToken() {

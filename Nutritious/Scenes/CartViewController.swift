@@ -73,26 +73,27 @@ class CartViewController: BaseViewController, CartView,UIGestureRecognizerDelega
     }
     
     @IBAction func checkout(_ sender: Any) {
+        presenter.presentComplate()
         
     }
     func alertRemove(){
-        let alert = UIAlertController(title: "Delete", message: "Are you want delete food / set in cart ?", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Xoá", message: "Bạn có chắc chắn muốn xoá món/set ăn khỏi giỏ hàng?", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
             self.presenter.removeFood()
             self.viewBalon.isHidden = true
         }))
-        alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: { action in
+        alert.addAction(UIAlertAction(title: "Huỷ", style: .default, handler: { action in
             
         }))
         self.present(alert, animated: true, completion: nil)
     }
     @IBAction func deleteCart(_ sender: Any) {
-        let alert = UIAlertController(title: "Delete", message: "Are you want delete all food, set in cart ?", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Xoá", message: "Bạn có chắc chắn muốn xoá giỏ hàng?", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
             self.presenter.deleteCart()
             self.navigationController?.popViewController(animated: true)
         }))
-        alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: { action in
+        alert.addAction(UIAlertAction(title: "Huỷ", style: .default, handler: { action in
             
         }))
         self.present(alert, animated: true, completion: nil)
@@ -133,9 +134,9 @@ extension CartViewController: UITableViewDelegate, UITableViewDataSource {
         viewHeader.backgroundColor = UIColor.white
         let title = UILabel()
         if section == 0 {
-            title.text = "SetList"
+            title.text = "Danh sách Set ăn"
         }else {
-            title.text = "FoodList"
+            title.text = "Danh sách món ăn"
         }
         
         title.frame = CGRect(x: 30, y: -5, width: 300, height: 35)

@@ -21,6 +21,7 @@ use_frameworks!;
     pod 'Firebase/Messaging'
     pod 'ACTabScrollView'
     pod 'KUIPopOver'
+    pod 'lottie-ios'
 
 end
   

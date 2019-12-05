@@ -142,7 +142,7 @@ extension HomeViewController:  UITableViewDelegate, UITableViewDataSource {
         }
         cell.addToCart = {[weak self] in
             self?.presenter.addFoodToCart(food: (self?.presenter.getDataOfFood(index: self!.currentPage, row: indexPath.row))!)
-            self?.showToast(message: "Add food success")
+            self?.showToast(message: "Thêm món ăn thành công")
         }
         return cell
     }

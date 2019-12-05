@@ -56,7 +56,7 @@ class SetDetailViewController: BaseViewController, SetDetailView {
     }
     @IBAction func addToCart(_ sender: Any) {
         presenter.addSetToCart()
-        self.showToast(message: "Add set success")
+        self.showToast(message: "Thêm set ăn thành công")
     }
     func reloadData() {
         clDetail.reloadData()
@@ -79,7 +79,7 @@ extension SetDetailViewController:  UITableViewDelegate, UITableViewDataSource {
         }
         cell.addToCart = {[weak self] in
             self?.presenter.addFoodToCart(row: indexPath.row)
-            self?.showToast(message: "Add food success")
+            self?.showToast(message: "Thêm món ăn thành công")
         }
         return cell
     }

@@ -31,9 +31,11 @@ protocol CartPresenter {
     func removeSet()
     func setQuantitySet(set:SetDetailEntity)
     func presentSetDetail(row:Int)
+    func presentComplate()
 }
 
 class CartPresenterImplementation: CartPresenter {
+    
     
     var listFoodInCart:[FoodDetailEntity] = []
     var listSetInCart:[SetDetailEntity] = []
@@ -141,6 +143,10 @@ class CartPresenterImplementation: CartPresenter {
     
     func presentSetDetail(row:Int){
         self.router.presentSetDetail(set: listSetInCart[row])
+    }
+    func presentComplate() {
+        checkout()
+        self.router.presentComplate(listOrder: "listOrder")
     }
 }
 

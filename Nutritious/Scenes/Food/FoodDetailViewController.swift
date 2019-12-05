@@ -53,7 +53,7 @@ class FoodDetailViewController: BaseViewController, FoodDetailView {
     
     @IBAction func addFoodToCart(_ sender: Any) {
         self.presenter.addFoodToCart(food:food!)
-        self.showToast(message: "Add food success")
+        self.showToast(message: "Thêm món ăn thành công")
     }
     
     @IBAction func back(_ sender: Any) {
