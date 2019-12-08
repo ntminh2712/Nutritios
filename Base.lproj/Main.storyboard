@@ -1177,6 +1177,14 @@
                                     <constraint firstAttribute="width" constant="15" id="oXM-ZJ-v3t"/>
                                 </constraints>
                             </imageView>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ToN-Pc-7PG">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="577"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="5B2-a6-4ly" appends="YES" id="A7L-8h-MJb"/>
+                                </connections>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -1185,14 +1193,18 @@
                             <constraint firstAttribute="trailing" secondItem="AEO-f2-YvZ" secondAttribute="trailing" id="2vE-xH-d2y"/>
                             <constraint firstItem="1cs-cc-tmz" firstAttribute="centerY" secondItem="a9l-Xa-RcY" secondAttribute="centerY" id="3RB-0e-UJE"/>
                             <constraint firstItem="E47-AI-w3d" firstAttribute="top" secondItem="AEO-f2-YvZ" secondAttribute="bottom" id="48b-Hs-xAC"/>
+                            <constraint firstAttribute="trailing" secondItem="ToN-Pc-7PG" secondAttribute="trailing" id="4Od-oR-fcy"/>
                             <constraint firstItem="n12-OO-wyN" firstAttribute="top" secondItem="73r-IV-xsz" secondAttribute="bottom" constant="20" id="6yE-ah-za0"/>
+                            <constraint firstItem="ToN-Pc-7PG" firstAttribute="leading" secondItem="ctU-77-ULx" secondAttribute="leading" id="8PR-Yw-mwC"/>
                             <constraint firstItem="n12-OO-wyN" firstAttribute="leading" secondItem="ctU-77-ULx" secondAttribute="leading" id="9OE-ya-ZrE"/>
                             <constraint firstItem="AEO-f2-YvZ" firstAttribute="leading" secondItem="ctU-77-ULx" secondAttribute="leading" id="AGC-WQ-AbX"/>
+                            <constraint firstItem="AEO-f2-YvZ" firstAttribute="top" secondItem="ToN-Pc-7PG" secondAttribute="bottom" id="D1Q-wc-DSn"/>
                             <constraint firstItem="1cs-cc-tmz" firstAttribute="centerX" secondItem="a9l-Xa-RcY" secondAttribute="centerX" id="Ftw-hW-8VB"/>
                             <constraint firstAttribute="trailing" secondItem="73r-IV-xsz" secondAttribute="trailing" id="JBd-hw-MRN"/>
                             <constraint firstItem="AEO-f2-YvZ" firstAttribute="top" secondItem="n12-OO-wyN" secondAttribute="bottom" id="cp3-BC-v3q"/>
                             <constraint firstItem="73r-IV-xsz" firstAttribute="leading" secondItem="ctU-77-ULx" secondAttribute="leading" id="dZO-ay-739"/>
                             <constraint firstItem="GhA-0u-goS" firstAttribute="centerY" secondItem="a9l-Xa-RcY" secondAttribute="centerY" id="h64-3j-odj"/>
+                            <constraint firstItem="ToN-Pc-7PG" firstAttribute="top" secondItem="ctU-77-ULx" secondAttribute="top" id="iE9-3U-aGB"/>
                             <constraint firstItem="a9l-Xa-RcY" firstAttribute="centerY" secondItem="bUC-ij-4Zj" secondAttribute="centerY" id="pi6-iL-LEo"/>
                             <constraint firstItem="a9l-Xa-RcY" firstAttribute="leading" secondItem="ctU-77-ULx" secondAttribute="leading" constant="20" id="q56-AM-byb"/>
                             <constraint firstAttribute="trailing" secondItem="n12-OO-wyN" secondAttribute="trailing" id="tte-WO-YAA"/>
@@ -1203,6 +1215,7 @@
                         <outlet property="lbQuantity" destination="HK5-FO-IF1" id="IZz-Hi-97s"/>
                         <outlet property="tbCart" destination="n12-OO-wyN" id="PG8-Ny-y9C"/>
                         <outlet property="viewBalon" destination="J3U-Na-snR" id="Rmu-7F-C9Y"/>
+                        <outlet property="viewBalonHandler" destination="ToN-Pc-7PG" id="FFM-IJ-g4o"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HVz-ng-ffG" userLabel="First Responder" sceneMemberID="firstResponder"/>

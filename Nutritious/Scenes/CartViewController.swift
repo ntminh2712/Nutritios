@@ -14,6 +14,8 @@ class CartViewController: BaseViewController, CartView,UIGestureRecognizerDelega
     @IBOutlet weak var tbCart: UITableView!
     @IBOutlet var viewBalon: UIView!
     @IBOutlet weak var lbQuantity: UILabel!
+    
+    @IBOutlet weak var viewBalonHandler: UIView!
     var typeHandlerQuantity:HandlerQuantity = .Food
     // MARK: Injections
     var presenter: CartPresenter!
@@ -103,10 +105,12 @@ class CartViewController: BaseViewController, CartView,UIGestureRecognizerDelega
     func showViewBalon(quantity:Int){
         lbQuantity.text = String(quantity)
         viewBalon.isHidden = false
+        viewBalonHandler.isHidden = false
     }
     
     @IBAction func hiddentPopup(_ sender: Any) {
         viewBalon.isHidden = true
+        viewBalonHandler.isHidden = true
     }
     
     func handleError(title: String, content: String) {

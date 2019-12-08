@@ -31,7 +31,7 @@ class HomeRouterImplemetation : HomeViewRouter{
     
     func presentSetDetail(set:SetDetailEntity){
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let newExploreController = storyBoard.instantiateViewController(withIdentifier: "foodDetailViewController") as! SetDetailViewController
+        let newExploreController = storyBoard.instantiateViewController(withIdentifier: "setDetailViewController") as! SetDetailViewController
         newExploreController.setId = set.id
         viewController!.navigationController?.pushViewController(newExploreController, animated: true)
     }

@@ -83,11 +83,11 @@ class HomeViewController: BaseViewController, HomeView {
     }
     
     func reloadTableView() {
-        
         tabScrollView.defaultPage = presenter.numberOfList / 2
         tabScrollView.cachedPageLimit = presenter.numberOfList
         tbFood.reloadData()
         tabScrollView.reloadData()
+        clCombo.reloadData()
     }
 }
 extension HomeViewController: ACTabScrollViewDelegate,ACTabScrollViewDataSource {
@@ -162,6 +162,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "setCollectionViewCell", for: indexPath) as! SetCollectionViewCell
         cell.setData(set: presenter.getDataSet(row: indexPath.row))
         cell.addToCart = {[weak self] in
+            self?.showToast(message: "Thêm set ăn thành công")
             self?.presenter.addSetToCart(set: (self?.presenter.getDataSet(row: indexPath.row))!)
         }
         cell.clickSet = {[weak self] in

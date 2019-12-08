@@ -19,6 +19,7 @@ class SetCollectionViewCell: UICollectionViewCell {
         setupView()
     }
     func setupView(){
+        imgSet.setViewRadius()
         self.viewBound.setViewRadius()
     }
     
