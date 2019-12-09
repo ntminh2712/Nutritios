@@ -18,7 +18,7 @@ protocol ComplateView {
 protocol ComplatePresenter {
     func viewDidLoad()
     var numberOfListAddress:Int {get}
-    func complate(title:String, phone:String, notes:String, listOrder:String)
+    func complate(title:String, phone:String, notes:String, listOrder:[OrderDetailEntity])
     func getDataAddress(row:Int)->AddressDetailEntity
     func setDataAddress(row:Int)
 }
@@ -54,30 +54,32 @@ class ComplatePresenterImplementation: ComplatePresenter {
         getAllAđress()
     }
     
-    func complate(title:String, phone:String, notes:String, listOrder:String){
+    func complate(title:String, phone:String, notes:String, listOrder:[OrderDetailEntity]){
         
         if title == "" || phone == "" {
             self.view?.handleError(title: NSLocalizedString("Thông Báo", comment: ""), content: "Bạn cần phải nhập địa chỉ và số điện thoại để đặt hàng")
         }else {
+            
             if title == addressDetail?.title && phone == addressDetail?.phone{
                 order(addressId: addressDetail?.id ?? 0, listOrder: listOrder, notes: notes)
             }else {
-                addAddress(title: title, phone: phone, notes: listOrder, listOrder:listOrder)
+                addAddress(title: title, phone: phone, notes: notes, listOrder:listOrder)
             }
             
         }
     }
     
-    func order(addressId:Int, listOrder:String,notes:String){
+    func order(addressId:Int, listOrder:[OrderDetailEntity],notes:String){
+        LoadingHUDControl.sharedManager.showLoadingHud()
         orderGateway?.order(addressId: addressId, listOrder: listOrder, notes: notes, completionHandler: { (result) in
             switch (result){
             case let .success(data):
-                if data.status == CodeResponse.success {
+                if data.status == CodeResponse.created {
                     self.view?.orderSuccess()
                 }else {
                     self.view?.handleError(title: "Error", content: data.message)
                 }
-                
+                LoadingHUDControl.sharedManager.hideLoadingHud()
                 break
             case let .failure(error):
                 LoadingHUDControl.sharedManager.hideLoadingHud()
@@ -86,7 +88,7 @@ class ComplatePresenterImplementation: ComplatePresenter {
         })
     }
     
-    func addAddress(title:String,phone:String,notes:String, listOrder:String){
+    func addAddress(title:String,phone:String,notes:String, listOrder:[OrderDetailEntity]){
         orderGateway?.addAddresss(title: title, content: "", phone: phone
             , completionHandler: { (result) in
                 switch (result){
@@ -94,12 +96,9 @@ class ComplatePresenterImplementation: ComplatePresenter {
                     if data.status == CodeResponse.success {
                         self.addressDetail = data.data
                         self.order(addressId: self.addressDetail?.id ?? 0, listOrder: listOrder, notes: notes)
-                    }else {
-                        self.view?.handleError(title: "Error", content: data.message)
                     }
                     break
                 case let .failure(error):
-                    LoadingHUDControl.sharedManager.hideLoadingHud()
                     self.view?.handleError(title: NSLocalizedString("announce", comment: ""), content: error.localizedDescription)
                 }
         })
@@ -107,6 +106,7 @@ class ComplatePresenterImplementation: ComplatePresenter {
     }
     
     func getAllAđress(){
+        LoadingHUDControl.sharedManager.showLoadingHud() 
         orderGateway?.getAddress(completionHandler: { (result) in
             switch (result){
             case let .success(data):
@@ -116,6 +116,7 @@ class ComplatePresenterImplementation: ComplatePresenter {
                 }else {
                     self.view?.handleError(title: "Error", content: data.message)
                 }
+                LoadingHUDControl.sharedManager.hideLoadingHud()
                 break
             case let .failure(error):
                 LoadingHUDControl.sharedManager.hideLoadingHud()

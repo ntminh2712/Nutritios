@@ -18,8 +18,8 @@ class ProfileConfigurator: ProfileConfigurable {
     func configure(viewController: ProfileViewController) {
     
         let router = ProfileRouterImplemetation(viewController: viewController)
-//        let exploreGateway = ApiExploreGatewayImplementation()
-        let presenter = ProfilePresenterImplementation(view:viewController,router: router)
+        let loginGateway = ApiLoginGatewayImplementation()
+        let presenter = ProfilePresenterImplementation(view:viewController,router: router, loginGateway: loginGateway)
         
         viewController.presenter = presenter
 

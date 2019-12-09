@@ -79,7 +79,7 @@ class HomeViewController: BaseViewController, HomeView {
     }
     
     func handleError(title: String, content: String) {
-        
+       self.showAlertWithOnlyCancelAction(title:title,message:content,alertType:.alert,cancelTitle:"Ok",cancelActionHandler:nil)
     }
     
     func reloadTableView() {
@@ -88,6 +88,7 @@ class HomeViewController: BaseViewController, HomeView {
         tabScrollView.cachedPageLimit = presenter.numberOfList
         tbFood.reloadData()
         tabScrollView.reloadData()
+        clCombo.reloadData()
     }
 }
 extension HomeViewController: ACTabScrollViewDelegate,ACTabScrollViewDataSource {
@@ -163,6 +164,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         cell.setData(set: presenter.getDataSet(row: indexPath.row))
         cell.addToCart = {[weak self] in
             self?.presenter.addSetToCart(set: (self?.presenter.getDataSet(row: indexPath.row))!)
+            self?.showToast(message: "Thêm set ăn thành công")
         }
         cell.clickSet = {[weak self] in
             self?.presenter.presentSetDetail(row:indexPath.row)

@@ -11,10 +11,15 @@ import UIKit
 class CartViewController: BaseViewController, CartView,UIGestureRecognizerDelegate {
     
     // MARK: Outlets
+    @IBOutlet weak var viewCheckout: CardImage!
+    @IBOutlet weak var btnCheckout: UIButton!
     @IBOutlet weak var tbCart: UITableView!
     @IBOutlet var viewBalon: UIView!
+    @IBOutlet weak var viewHiddenBalon: UIView!
     @IBOutlet weak var lbQuantity: UILabel!
     var typeHandlerQuantity:HandlerQuantity = .Food
+    var currentSection:Int = 0
+    var currentRow:Int = 0
     // MARK: Injections
     var presenter: CartPresenter!
     var configurator: CartConfigurable = CartConfigurator()
@@ -28,6 +33,13 @@ class CartViewController: BaseViewController, CartView,UIGestureRecognizerDelega
     }
     override func viewWillAppear(_ animated: Bool) {
         presenter.viewDidLoad()
+        if presenter.numberOfFood() == 0 && presenter.numberOfSet()  == 0 {
+            btnCheckout.isEnabled = false
+            viewCheckout.backgroundColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
+        }else {
+            btnCheckout.isEnabled = true
+            viewCheckout.backgroundColor = #colorLiteral(red: 0.2716201544, green: 0.7891679406, blue: 0.4793732166, alpha: 1)
+        }
     }
     
     func setupTableview(){
@@ -79,8 +91,10 @@ class CartViewController: BaseViewController, CartView,UIGestureRecognizerDelega
     func alertRemove(){
         let alert = UIAlertController(title: "Xoá", message: "Bạn có chắc chắn muốn xoá món/set ăn khỏi giỏ hàng?", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+            self.presenter.removeIndexOfList(section: self.currentSection, row: self.currentRow)
             self.presenter.removeFood()
             self.viewBalon.isHidden = true
+            self.viewHiddenBalon.isHidden = true
         }))
         alert.addAction(UIAlertAction(title: "Huỷ", style: .default, handler: { action in
             
@@ -103,14 +117,16 @@ class CartViewController: BaseViewController, CartView,UIGestureRecognizerDelega
     func showViewBalon(quantity:Int){
         lbQuantity.text = String(quantity)
         viewBalon.isHidden = false
+        viewHiddenBalon.isHidden = false
     }
     
     @IBAction func hiddentPopup(_ sender: Any) {
         viewBalon.isHidden = true
+        viewHiddenBalon.isHidden = true
     }
     
     func handleError(title: String, content: String) {
-        
+        self.showAlertWithOnlyCancelAction(title:title,message:content,alertType:.alert,cancelTitle:"Ok",cancelActionHandler:nil)
     }
     
 }
@@ -154,6 +170,8 @@ extension CartViewController: UITableViewDelegate, UITableViewDataSource {
             }
             cell.popupBalon = {[weak self] in
                 self?.typeHandlerQuantity = .Food
+                self?.currentSection = indexPath.section
+                self?.currentRow = indexPath.row
                 self?.presenter.setQuantityFood(food: (self?.presenter.getDataOfFood(row: indexPath.row))!)
                 self?.showViewBalon(quantity: self?.presenter.getDataOfFood(row: indexPath.row).quantity ?? 0)
             }
@@ -166,6 +184,8 @@ extension CartViewController: UITableViewDelegate, UITableViewDataSource {
             }
             cell.popupBalon = {[weak self] in
                 self?.typeHandlerQuantity = .Set
+                self?.currentSection = indexPath.section
+                self?.currentRow = indexPath.row
                 self?.presenter.setQuantitySet(set: (self?.presenter.getDataOfSet(row: indexPath.row))!)
                 self?.showViewBalon(quantity: self?.presenter.getDataOfSet(row: indexPath.row).quantity ?? 0)
             }

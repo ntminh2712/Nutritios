@@ -6,11 +6,11 @@ extension String {
     
 }
 extension Float {
-    func convertTypePrice() -> Float{
+    func convertTypePrice() -> String{
         let formatter = NumberFormatter()
-        formatter.locale = Locale.current
+        formatter.locale = Locale(identifier: "vi_VN")
         formatter.numberStyle = .decimal
-        return formatter.number(from: String(self)) as! Float
+        return "\(formatter.string(from: NSNumber(value: self))!)₫"
         
     }
 }

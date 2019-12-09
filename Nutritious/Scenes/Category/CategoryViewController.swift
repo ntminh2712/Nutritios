@@ -16,7 +16,7 @@ class CategoryViewController: BaseViewController, CategoryView {
     // MARK: Injections
     var presenter: CategoryPresenter!
     var configurator: CategoryConfigurable = CategoryConfigurator()
-
+    
     // MARK: View lifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,7 +37,7 @@ class CategoryViewController: BaseViewController, CategoryView {
     }
     
     func handleError(title: String, content: String) {
-        
+        self.showAlertWithOnlyCancelAction(title:title,message:content,alertType:.alert,cancelTitle:"Ok",cancelActionHandler:nil)
     }
 }
 

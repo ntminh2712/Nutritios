@@ -14,6 +14,9 @@
 		4C509FDD2394C1E50008BD6B /* SetDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C509FD92394C1E50008BD6B /* SetDetailRouter.swift */; };
 		4C509FDE2394C1E50008BD6B /* SetDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C509FDA2394C1E50008BD6B /* SetDetailViewController.swift */; };
 		4C509FDF2394C1E50008BD6B /* SetDetailConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C509FDB2394C1E50008BD6B /* SetDetailConfigurator.swift */; };
+		4C563F892399FB1900294057 /* OrderEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C563F882399FB1900294057 /* OrderEntity.swift */; };
+		4C563F8C2399FB7400294057 /* ProfileEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C563F8B2399FB7400294057 /* ProfileEntity.swift */; };
+		4C563F8E2399FB8C00294057 /* ProfileDetailEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C563F8D2399FB8C00294057 /* ProfileDetailEntity.swift */; };
 		4C57A03A2397597A0033DCF2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4C57A0392397597A0033DCF2 /* GoogleService-Info.plist */; };
 		4C57A03D23976CEF0033DCF2 /* DiscoveryEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C57A03C23976CEF0033DCF2 /* DiscoveryEntity.swift */; };
 		4C7A21882398EA84007BC471 /* AddressEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7A21872398EA84007BC471 /* AddressEntity.swift */; };
@@ -129,6 +132,9 @@
 		4C509FD92394C1E50008BD6B /* SetDetailRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetDetailRouter.swift; sourceTree = "<group>"; };
 		4C509FDA2394C1E50008BD6B /* SetDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetDetailViewController.swift; sourceTree = "<group>"; };
 		4C509FDB2394C1E50008BD6B /* SetDetailConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetDetailConfigurator.swift; sourceTree = "<group>"; };
+		4C563F882399FB1900294057 /* OrderEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderEntity.swift; sourceTree = "<group>"; };
+		4C563F8B2399FB7400294057 /* ProfileEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEntity.swift; sourceTree = "<group>"; };
+		4C563F8D2399FB8C00294057 /* ProfileDetailEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDetailEntity.swift; sourceTree = "<group>"; };
 		4C57A0392397597A0033DCF2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4C57A03C23976CEF0033DCF2 /* DiscoveryEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoveryEntity.swift; sourceTree = "<group>"; };
 		4C7A21872398EA84007BC471 /* AddressEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressEntity.swift; sourceTree = "<group>"; };
@@ -267,6 +273,7 @@
 		4C4F9DF52397B3FF000C9E0D /* Order */ = {
 			isa = PBXGroup;
 			children = (
+				4C563F882399FB1900294057 /* OrderEntity.swift */,
 			);
 			name = Order;
 			sourceTree = "<group>";
@@ -280,6 +287,15 @@
 				4C509FDB2394C1E50008BD6B /* SetDetailConfigurator.swift */,
 			);
 			name = Set;
+			sourceTree = "<group>";
+		};
+		4C563F8A2399FB6A00294057 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				4C563F8B2399FB7400294057 /* ProfileEntity.swift */,
+				4C563F8D2399FB8C00294057 /* ProfileDetailEntity.swift */,
+			);
+			name = Profile;
 			sourceTree = "<group>";
 		};
 		4C57A03B23976CDE0033DCF2 /* Discovery */ = {
@@ -389,6 +405,7 @@
 		4CB83C80238E283F000EB2E7 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				4C563F8A2399FB6A00294057 /* Profile */,
 				4C7A21842398EA5E007BC471 /* Address */,
 				4C4F9DF52397B3FF000C9E0D /* Order */,
 				4C57A03B23976CDE0033DCF2 /* Discovery */,
@@ -808,6 +825,9 @@
 					4CED04AE238B890800E140DF = {
 						CreatedOnToolsVersion = 10.2.1;
 						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
 							com.apple.Push = {
 								enabled = 1;
 							};
@@ -916,6 +936,7 @@
 				4CEEFF912390BE830015A0DD /* LoginRouter.swift in Sources */,
 				4CEEFF8B2390BE830015A0DD /* FoodDetailViewController.swift in Sources */,
 				AB8E57EE2392DC8A00FB85E5 /* ApiSetGateway.swift in Sources */,
+				4C563F892399FB1900294057 /* OrderEntity.swift in Sources */,
 				AB8E57EA2392CE0B00FB85E5 /* ListCategoryConfigurator.swift in Sources */,
 				4C509FDD2394C1E50008BD6B /* SetDetailRouter.swift in Sources */,
 				4CB83CDE238E283F000EB2E7 /* Label+Extension.swift in Sources */,
@@ -945,6 +966,7 @@
 				4CB83CE0238E283F000EB2E7 /* Array+Extension.swift in Sources */,
 				4CED04B3238B890800E140DF /* AppDelegate.swift in Sources */,
 				4CEEFF9A2390BE830015A0DD /* ProfileConfigurator.swift in Sources */,
+				4C563F8C2399FB7400294057 /* ProfileEntity.swift in Sources */,
 				4CB83CD1238E283F000EB2E7 /* SetDetailEntity.swift in Sources */,
 				4C509FDE2394C1E50008BD6B /* SetDetailViewController.swift in Sources */,
 				4CEEFF972390BE830015A0DD /* CategoryRouter.swift in Sources */,
@@ -986,6 +1008,7 @@
 				4CB83CCE238E283F000EB2E7 /* FoodEntity.swift in Sources */,
 				4CB83CEF238E283F000EB2E7 /* ApiProvider.swift in Sources */,
 				4CB83CD6238E283F000EB2E7 /* Observable+ObjectMapper.swift.swift in Sources */,
+				4C563F8E2399FB8C00294057 /* ProfileDetailEntity.swift in Sources */,
 				4CEEFF7F2390BE830015A0DD /* HistoryViewController.swift in Sources */,
 				4CB83CD9238E283F000EB2E7 /* UIView+Extension.swift in Sources */,
 				4CEEFF962390BE830015A0DD /* CategoryConfigurator.swift in Sources */,

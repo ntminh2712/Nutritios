@@ -36,6 +36,8 @@ extension TSAPI:TargetType
             return "/address"
         case .getAddress:
             return "/address"
+        case .getMe:
+            return "/auth/me"
         }
     }
     
@@ -43,7 +45,7 @@ extension TSAPI:TargetType
         switch self {
         case .login, .addNotification, .order, .addAddress:
             return .post
-        case .getCategory, .getSuggestSet, .getSetDetail,.getAddress:
+        case .getCategory, .getSuggestSet, .getSetDetail,.getAddress,.getMe:
             return .get
         }
     }
@@ -51,7 +53,7 @@ extension TSAPI:TargetType
     
     public var parameterEncoding: ParameterEncoding {
         switch self {
-        case .getCategory, .getSuggestSet, .getSetDetail,  .getAddress:
+        case .getCategory, .getSuggestSet, .getSetDetail,  .getAddress,.getMe:
             return URLEncoding.default
         default:
             return JSONEncoding.default
@@ -89,10 +91,18 @@ extension TSAPI:TargetType
         case .order(let addressId, let listOrder, let note):
             var paramester: [String: Any]?{
                 var parameter:[String:Any] = [:]
-                parameter["address"] = addressId
+                parameter["addressId"] = addressId
                 parameter["note"] = note
                 parameter["type"] = 1
-                parameter["orderDetails"] = listOrder
+                var orderParameter:[Any] = []
+                for item in listOrder {
+                    var subParameter: [String: Any] = [:]
+                    subParameter["foodId"] = item.foodId
+                    subParameter["quantity"] = item.quantity
+                    subParameter["comboId"] = item.commboId
+                    orderParameter.append(subParameter)
+                }
+                parameter["orderDetails"] = orderParameter
                 return parameter
             }
             return paramester
@@ -125,7 +135,7 @@ extension TSAPI:TargetType
                 return header
             }
             return header
-        case .addNotification, .order, .addAddress, .getAddress:
+        case .addNotification, .order, .addAddress, .getAddress,.getMe:
             var header: [String:String]?{
                 var header: [String:String] = [:]
                 if let token = LoginEntity.getToken() {

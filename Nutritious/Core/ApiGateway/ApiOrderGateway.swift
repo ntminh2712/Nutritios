@@ -13,7 +13,7 @@ protocol ApiOrderGateway: OrderGateway {
 
 class ApiOrderGatewayImplementation: ApiOrderGateway
 {
-    func order(addressId: Int, listOrder: String, notes:String, completionHandler: @escaping OrderGatewayCompletionHandler) {
+    func order(addressId: Int, listOrder: [OrderDetailEntity], notes:String, completionHandler: @escaping OrderGatewayCompletionHandler) {
         apiProvider.request(TSAPI.order(addressId, listOrder, notes)).asObservable().mapObject(SetEntity.self).subscribe(onNext:{(result) in
             completionHandler(.success(result))
         }, onError:{(error) in

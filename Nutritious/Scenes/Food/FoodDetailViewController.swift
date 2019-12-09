@@ -48,7 +48,7 @@ class FoodDetailViewController: BaseViewController, FoodDetailView {
     }
     
     func handleError(title: String, content: String) {
-        
+        self.showAlertWithOnlyCancelAction(title:title,message:content,alertType:.alert,cancelTitle:"Ok",cancelActionHandler:nil)
     }
     
     @IBAction func addFoodToCart(_ sender: Any) {

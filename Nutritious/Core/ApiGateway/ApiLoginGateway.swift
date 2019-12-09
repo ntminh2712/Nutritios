@@ -28,4 +28,12 @@ class ApiLoginGatewayImplementation: ApiLoginGateway
             completionHandler(.failure(error))
         })
     }
+    
+    func getProfile(completionHandler: @escaping ProfileGatewayCompletionHandler) {
+        apiProvider.request(TSAPI.getMe).asObservable().mapObject(ProfileEntity.self).subscribe(onNext:{(result) in
+            completionHandler(.success(result))
+        }, onError:{(error) in
+            completionHandler(.failure(error))
+        })
+    }
 }

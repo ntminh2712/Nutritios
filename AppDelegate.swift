@@ -26,6 +26,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         return true
     }
     
+    
+    
     func checkLogin(){
         if LoginEntity.getToken() != nil {
             let vc = MAIN_STORYBOARD_INSTANCE.instantiateViewController(withIdentifier: "mainTapViewController") as! MainTapViewController
@@ -69,6 +71,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         }
     }
     
+    
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String) {
         print("FCM token: \(fcmToken)")
         FcmTokenEntity.saveFcmToken(fcmToken)
@@ -99,7 +102,35 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        let info = response.notification.request.content.userInfo
+        if let notiStr = info["type"] as? String{
+            if notiStr == "question" {
+                if let token = LoginEntity.getToken() {
+                    guard let url = URL(string: "http://anlanhmanh.com/user/eat?userId=\(token)") else { return }
+                    UIApplication.shared.open(url)
+                }
+            }else {
+                
+            }
+        }
+        print(response.actionIdentifier)
+        // tell the app that we have finished processing the user’s action / response
+        completionHandler()
+        
+        
+    }
     
+    func convertToJson(text: String) -> [String: Any]? {
+        if let data = text.data(using: .utf8) {
+            do {
+                return try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
+        return nil
+    }
     
 }
 

@@ -16,18 +16,9 @@ enum TSAPI
     case getSuggestSet
     case addNotification(String)
     case getSetDetail(Int)
-    case order(Int,String,String)
+    case order(Int,Array<OrderDetailEntity>,String)
     case addAddress(String,String,String)
     case getAddress
+    case getMe
 }
  
-struct OrderEntity {
-    var address:Int
-    var orderDetails:[OrderDetailEntity]
-}
-
-struct OrderDetailEntity {
-    var foodId:Int?
-    var commbo:Int?
-    var quantity:Int?
-}

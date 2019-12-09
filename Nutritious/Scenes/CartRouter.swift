@@ -11,7 +11,7 @@ import UIKit
 protocol CartViewRouter{
     func presentFoodDetail(food:FoodDetailEntity)
     func presentSetDetail(set:SetDetailEntity)
-    func presentComplate(listOrder:String)
+    func presentComplate(listOrder:[OrderDetailEntity])
 }
 
 class CartRouterImplemetation : CartViewRouter{
@@ -35,7 +35,7 @@ class CartRouterImplemetation : CartViewRouter{
         newExploreController.setId = set.id
         viewController!.navigationController?.pushViewController(newExploreController, animated: true)
     }
-    func presentComplate(listOrder:String){
+    func presentComplate(listOrder:[OrderDetailEntity]){
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let newExploreController = storyBoard.instantiateViewController(withIdentifier: "complateViewController") as! ComplateViewController
         newExploreController.listOrder = listOrder

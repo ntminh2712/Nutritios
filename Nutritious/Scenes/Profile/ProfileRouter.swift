@@ -9,7 +9,7 @@
 import UIKit
 
 protocol ProfileViewRouter{
-//    func presentExample(leaguesId:Int)
+    func presentLogin()
 }
 
 class ProfileRouterImplemetation : ProfileViewRouter{
@@ -21,12 +21,11 @@ class ProfileRouterImplemetation : ProfileViewRouter{
     required init(viewController: UIViewController) {
         self.viewController = viewController
     }
-//    func presentExample(leaguesId:Int){
-//        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-//        let newExploreController = storyBoard.instantiateViewController(withIdentifier: "leaguesDetailController") as! LeaguesDetailController
-//        newExploreController.leaguesId = leaguesId
-//        viewController!.navigationController?.pushViewController(newExploreController, animated: true)
-//    }
+    func presentLogin(){
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let newExploreController = storyBoard.instantiateViewController(withIdentifier: "loginViewController") as! LoginViewController
+        viewController!.navigationController?.pushViewController(newExploreController, animated: true)
+    }
 }
 
 

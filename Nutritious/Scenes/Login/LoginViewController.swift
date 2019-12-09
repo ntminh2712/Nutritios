@@ -32,7 +32,11 @@ class LoginViewController: BaseViewController, LoginView {
     }
     
     func handleError(title: String, content: String) {
-        
+        self.showAlertWithOnlyCancelAction(title: title, message: content, alertType: .alert, cancelTitle: "Ok", cancelActionHandler: nil)
+    }
+    @IBAction func openRegister(_ sender: Any) {
+        guard let url = URL(string: "http://anlanhmanh.com/register") else { return }
+        UIApplication.shared.open(url)
     }
     
     @IBAction func login(_ sender: Any) {

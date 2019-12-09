@@ -46,6 +46,7 @@ class LoginPresenterImplementation: LoginPresenter {
     }
     
     func login(username:String, password:String){
+        LoadingHUDControl.sharedManager.showLoadingHud()
         loginGateway?.login(username: username, password: password, completionHandler: { (result) in
             switch (result){
             case let .success(data):
@@ -56,6 +57,7 @@ class LoginPresenterImplementation: LoginPresenter {
                 }else {
                     self.view?.handleError(title: "Error", content: data.message)
                 }
+                LoadingHUDControl.sharedManager.hideLoadingHud()
                 break
             case let .failure(error):
                 LoadingHUDControl.sharedManager.hideLoadingHud()

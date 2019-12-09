@@ -42,7 +42,7 @@ class ListCategoryViewController: BaseViewController, ListCategoryView {
     }
     
     func handleError(title: String, content: String) {
-        
+        self.showAlertWithOnlyCancelAction(title:title,message:content,alertType:.alert,cancelTitle:"Ok",cancelActionHandler:nil)
     }
     @IBAction func back(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)

@@ -63,7 +63,7 @@ class SetDetailViewController: BaseViewController, SetDetailView {
         tbFood.reloadData()
     }
     func handleError(title: String, content: String) {
-        
+        self.showAlertWithOnlyCancelAction(title:title,message:content,alertType:.alert,cancelTitle:"Ok",cancelActionHandler:nil)
     }
 }
 extension SetDetailViewController:  UITableViewDelegate, UITableViewDataSource {

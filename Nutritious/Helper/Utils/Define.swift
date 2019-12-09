@@ -64,5 +64,6 @@ enum RoundType {
 
 struct CodeResponse  {
     public static var success: Int = 200
+    public static var created: Int = 201
     public static var failure: Int = 400
 }

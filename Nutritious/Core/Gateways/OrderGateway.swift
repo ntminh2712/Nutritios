@@ -12,7 +12,7 @@ typealias AddressGatewayCompletionHandler = (_ address: Result<AddressEntity>) -
 
 protocol OrderGateway {
     
-    func order(addressId:Int , listOrder :String, notes:String, completionHandler: @escaping OrderGatewayCompletionHandler)
+    func order(addressId:Int , listOrder:[OrderDetailEntity], notes:String, completionHandler: @escaping OrderGatewayCompletionHandler)
     
     func addAddresss(title:String, content:String, phone:String, completionHandler: @escaping AddressGatewayCompletionHandler)
     func getAddress(completionHandler: @escaping AddressGatewayCompletionHandler)

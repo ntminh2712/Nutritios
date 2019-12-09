@@ -11,12 +11,13 @@ import Lottie
 class ComplateViewController: BaseViewController, ComplateView {
     
     // MARK: Outlets
+    @IBOutlet weak var lbTotal: UILabel!
     @IBOutlet weak var tfAddress: UITextField!
     @IBOutlet weak var tfPhone: UITextField!
     @IBOutlet weak var tfNote: UITextField!
     @IBOutlet weak var tbAddress: UITableView!
     @IBOutlet weak var heightTbAddress: NSLayoutConstraint!
-    var listOrder:String?
+    var listOrder:[OrderDetailEntity] = []
     // MARK: Injections
     var presenter: ComplatePresenter!
     var configurator: ComplateConfigurable = ComplateConfigurator()
@@ -26,7 +27,20 @@ class ComplateViewController: BaseViewController, ComplateView {
         super.viewDidLoad()
         configurator.configure(viewController: self)
         presenter.viewDidLoad()
+        
         setupTableView()
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        setupView()
+    }
+    
+    func setupView(){
+        var totalPrice:Float = 0
+        for item in listOrder {
+            totalPrice = totalPrice + (item.price! * Float(item.quantity!))
+        }
+        totalPrice = totalPrice + 15000
+        self.lbTotal.text = totalPrice.convertTypePrice()
     }
     
     func setupTableView(){
@@ -43,15 +57,12 @@ class ComplateViewController: BaseViewController, ComplateView {
     }
     
 
-    func getListOrder() -> String {
-        return listOrder ?? ""
-    }
     @IBAction func done(_ sender: Any) {
-        presenter.complate(title: tfAddress.text ?? "", phone: tfPhone.text ?? "", notes: tfNote.text ?? "", listOrder: listOrder ?? "")
+        presenter.complate(title: tfAddress.text ?? "", phone: tfPhone.text ?? "", notes: tfNote.text ?? "", listOrder: listOrder)
     }
     
     func handleError(title: String, content: String) {
-        
+        self.showAlertWithOnlyCancelAction(title:title,message:content,alertType:.alert,cancelTitle:"Ok",cancelActionHandler:nil)
     }
     @IBAction func back(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)

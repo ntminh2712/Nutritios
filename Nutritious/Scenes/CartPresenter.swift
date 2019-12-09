@@ -32,6 +32,7 @@ protocol CartPresenter {
     func setQuantitySet(set:SetDetailEntity)
     func presentSetDetail(row:Int)
     func presentComplate()
+    func removeIndexOfList(section:Int,row:Int)
 }
 
 class CartPresenterImplementation: CartPresenter {
@@ -58,6 +59,15 @@ class CartPresenterImplementation: CartPresenter {
             return 0
         }
         
+    }
+    
+    func removeIndexOfList(section:Int,row:Int) {
+        if section == 0 {
+            listSetInCart.remove(at: row)
+        }else {
+            listFoodInCart.remove(at: row)
+        }
+        self.view?.reloadTableView()
     }
     
     func getDataOfSet(row: Int) -> SetDetailEntity {
@@ -127,12 +137,13 @@ class CartPresenterImplementation: CartPresenter {
     }
     
     func checkout(){
+        listOrder = []
         for food in listFoodInCart {
-            let order:OrderDetailEntity = OrderDetailEntity(foodId: (food.id), commbo: nil, quantity: food.quantity)
+            let order:OrderDetailEntity = OrderDetailEntity(foodId: (food.id), commboId: nil, quantity: food.quantity,price: food.price)
             listOrder.append(order)
         }
         for set in listSetInCart {
-            let order:OrderDetailEntity = OrderDetailEntity(foodId: nil , commbo: set.id, quantity: set.quantity)
+            let order:OrderDetailEntity = OrderDetailEntity(foodId: nil , commboId: set.id, quantity: set.quantity,price: set.price)
             listOrder.append(order)
         }
     }
@@ -146,7 +157,7 @@ class CartPresenterImplementation: CartPresenter {
     }
     func presentComplate() {
         checkout()
-        self.router.presentComplate(listOrder: "\(listOrder)")
+        self.router.presentComplate(listOrder: listOrder)
     }
 }
 
