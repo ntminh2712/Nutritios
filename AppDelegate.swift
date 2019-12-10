@@ -106,8 +106,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         let info = response.notification.request.content.userInfo
         if let notiStr = info["type"] as? String{
             if notiStr == "question" {
-                if let token = LoginEntity.getToken() {
-                    guard let url = URL(string: "http://anlanhmanh.com/user/eat?userId=\(token)") else { return }
+                if let token = LoginEntity.getToken()?.replacingOccurrences(of: "Bearer ", with: "") {
+                    guard let url = URL(string: "http://anlanhmanh.com/user/eat?userId=\(token)") else {
+                        return
+                    }
                     UIApplication.shared.open(url)
                 }
             }else {
