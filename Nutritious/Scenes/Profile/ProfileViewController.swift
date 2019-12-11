@@ -55,7 +55,7 @@ class ProfileViewController: BaseViewController, ProfileView {
     }
     
     @IBAction func openUpdateAccount(_ sender: Any) {
-        guard let url = URL(string: "http://anlanhmanh.com/login") else { return }
+        guard let url = URL(string: "http://anlanhmanh.com/profile") else { return }
         UIApplication.shared.open(url)
     }
     @IBAction func openAboutUs(_ sender: Any) {

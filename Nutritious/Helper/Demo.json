@@ -4,21 +4,21 @@
             "id": 1,
             "name": "Lịch sử ăn uống",
             "description": "Bạn có thể theo dõi lịch trình ăn uống của bạn để có thể biết tình trạng sức khoẻ của bạn",
-            "url": "http://anlanhmanh.com",
+            "url": "http://anlanhmanh.com/profile",
             "image": "https://media.ex-cdn.com/EXP/media.giadinhmoi.vn/files/nguyenquyet/2017/10/08/chuan-bi-thuc-an-cho-ca-tuan-0846.jpg"
         },
         {
             "id": 2,
             "name": "Lịch sử đặt hàng",
             "description": "Thống kê lại các giao dịch bạn của bạn và trạng thái giao dịch.",
-            "url": "http://anlanhmanh.com",
+            "url": "http://anlanhmanh.com/profile",
             "image": "https://bongrotv.net/wp-content/uploads/2019/03/che-do-dinh-duong-cho-nguoi-choi-the-thao.jpg",
         },
         {
             "id": 3,
             "name": "Lộ trình ăn uống dành cho bạn",
             "description": "Cuộc sống hiện đại và công việc bận rộn khiến bạn ít có thời gian dành cho việc nấu nướng",
-            "url": "http://anlanhmanh.com",
+            "url": "http://anlanhmanh.com/schedule",
             "image": "https://media.ex-cdn.com/EXP/media.phunutoday.vn/files/hienvan/2018/01/13/3-1053-phunutoday.jpg"
         }
     ]
