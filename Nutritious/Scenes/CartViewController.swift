@@ -17,6 +17,9 @@ class CartViewController: BaseViewController, CartView,UIGestureRecognizerDelega
     @IBOutlet var viewBalon: UIView!
     @IBOutlet weak var viewHiddenBalon: UIView!
     @IBOutlet weak var lbQuantity: UILabel!
+    @IBOutlet weak var viewDelete: CardImage!
+    @IBOutlet weak var btnDelete: UIButton!
+    
     var typeHandlerQuantity:HandlerQuantity = .Food
     var currentSection:Int = 0
     var currentRow:Int = 0
@@ -32,13 +35,21 @@ class CartViewController: BaseViewController, CartView,UIGestureRecognizerDelega
         setupTableview()
     }
     override func viewWillAppear(_ animated: Bool) {
+        setupView()
+    }
+    
+    func setupView(){
         presenter.viewDidLoad()
         if presenter.numberOfFood() == 0 && presenter.numberOfSet()  == 0 {
             btnCheckout.isEnabled = false
             viewCheckout.backgroundColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
+            btnDelete.isEnabled = false
+            viewDelete.backgroundColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
         }else {
             btnCheckout.isEnabled = true
             viewCheckout.backgroundColor = #colorLiteral(red: 0.2716201544, green: 0.7891679406, blue: 0.4793732166, alpha: 1)
+            btnDelete.isEnabled = true
+            viewDelete.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         }
     }
     
@@ -92,9 +103,14 @@ class CartViewController: BaseViewController, CartView,UIGestureRecognizerDelega
         let alert = UIAlertController(title: "Xoá", message: "Bạn có chắc chắn muốn xoá món/set ăn khỏi giỏ hàng?", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
             self.presenter.removeIndexOfList(section: self.currentSection, row: self.currentRow)
-            self.presenter.removeFood()
+            if self.typeHandlerQuantity == .Food {
+                self.presenter.removeFood()
+            }else {
+                self.presenter.removeSet()
+            }
             self.viewBalon.isHidden = true
             self.viewHiddenBalon.isHidden = true
+            self.setupView()
         }))
         alert.addAction(UIAlertAction(title: "Huỷ", style: .default, handler: { action in
             

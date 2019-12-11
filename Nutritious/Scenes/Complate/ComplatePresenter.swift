@@ -93,7 +93,7 @@ class ComplatePresenterImplementation: ComplatePresenter {
             , completionHandler: { (result) in
                 switch (result){
                 case let .success(data):
-                    if data.status == CodeResponse.success {
+                    if data.status == CodeResponse.created {
                         self.addressDetail = data.data
                         self.order(addressId: self.addressDetail?.id ?? 0, listOrder: listOrder, notes: notes)
                     }

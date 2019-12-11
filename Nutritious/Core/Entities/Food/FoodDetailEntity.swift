@@ -67,7 +67,7 @@ extension FoodDetailEntity {
     class func  getFoodInCart()  -> [FoodDetailEntity] {
         do {
             let realm = try Realm()
-            return realm.objects(FoodDetailEntity.self).toArray(ofType: FoodDetailEntity.self)
+            return Array(realm.objects(FoodDetailEntity.self)).detached()
         } catch let error as NSError {
             Log.debug(message: error.description)
             return []
@@ -77,9 +77,9 @@ extension FoodDetailEntity {
     class func addFoodToCart(_ food: FoodDetailEntity) {
         do {
             let realm = try Realm()
-            if let food = realm.object(ofType: FoodDetailEntity.self, forPrimaryKey: food.id) {
+            if let foodExits = realm.object(ofType: FoodDetailEntity.self, forPrimaryKey: food.id) {
                 try realm.safeWrite {
-                    food.quantity = food.quantity + 1
+                    foodExits.quantity = foodExits.quantity + 1
                 }
             }else {
                 try realm.safeWrite {
@@ -95,14 +95,14 @@ extension FoodDetailEntity {
     class func removeFoodInCart(_ food: FoodDetailEntity) {
         do {
             let realm = try Realm()
-            if let food = realm.object(ofType: FoodDetailEntity.self, forPrimaryKey: food.id) {
-                if food.quantity > 1 {
+            if let foodExits = realm.object(ofType: FoodDetailEntity.self, forPrimaryKey: food.id) {
+                if foodExits.quantity > 1 {
                     try realm.safeWrite {
-                        food.quantity = food.quantity - 1
+                        foodExits.quantity = foodExits.quantity - 1
                     }
                 }else {
                     try realm.safeWrite {
-                        realm.delete(food)
+                        realm.delete(foodExits)
                     }
                 }
                 
@@ -114,9 +114,10 @@ extension FoodDetailEntity {
     }
     class func deleteAll(){
         do {
-            let realm = try Realm()
+            let realm = try! Realm()
             try realm.safeWrite {
-                realm.deleteAll()
+                let food = realm.objects(FoodDetailEntity.self)
+                realm.delete(food)
             }
             
         } catch let error as NSError {

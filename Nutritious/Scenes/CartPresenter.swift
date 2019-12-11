@@ -88,12 +88,14 @@ class CartPresenterImplementation: CartPresenter {
     
     func removeFood() {
         FoodDetailEntity.removeFoodInCart(handlerQuantityFood!)
+        handlerQuantityFood?.quantity -= 1
         self.view?.setQuantity(quantity: handlerQuantityFood!.quantity)
         getCart()
     }
     
     func addFood() {
         FoodDetailEntity.addFoodToCart(handlerQuantityFood!)
+        handlerQuantityFood?.quantity += 1
         self.view?.setQuantity(quantity: handlerQuantityFood!.quantity)
         getCart()
     }
@@ -108,12 +110,14 @@ class CartPresenterImplementation: CartPresenter {
     
     func addSet() {
         SetDetailEntity.addSetToCart(handlerQuantitySet!)
+        handlerQuantitySet?.quantity += 1
         self.view?.setQuantity(quantity: handlerQuantitySet!.quantity)
         getCart()
     }
     
     func removeSet() {
         SetDetailEntity.removeFoodInCart(handlerQuantitySet!)
+        handlerQuantitySet?.quantity -= 1
         self.view?.setQuantity(quantity: handlerQuantitySet!.quantity)
         getCart()
     }
@@ -134,6 +138,7 @@ class CartPresenterImplementation: CartPresenter {
     
     func deleteCart() {
         FoodDetailEntity.deleteAll()
+        SetDetailEntity.deleteAll()
     }
     
     func checkout(){

@@ -19,6 +19,7 @@
 		4C563F8E2399FB8C00294057 /* ProfileDetailEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C563F8D2399FB8C00294057 /* ProfileDetailEntity.swift */; };
 		4C57A03A2397597A0033DCF2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4C57A0392397597A0033DCF2 /* GoogleService-Info.plist */; };
 		4C57A03D23976CEF0033DCF2 /* DiscoveryEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C57A03C23976CEF0033DCF2 /* DiscoveryEntity.swift */; };
+		4C5B1FEB23A0DCC90092EBCA /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5B1FEA23A0DCC90092EBCA /* RealmManager.swift */; };
 		4C7A21882398EA84007BC471 /* AddressEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7A21872398EA84007BC471 /* AddressEntity.swift */; };
 		4C7A218A2398EAB4007BC471 /* AddressDetailEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7A21892398EAB4007BC471 /* AddressDetailEntity.swift */; };
 		4C7A218E2398FEA1007BC471 /* success.json in Resources */ = {isa = PBXBuildFile; fileRef = 4C7A218D2398FEA1007BC471 /* success.json */; };
@@ -64,7 +65,6 @@
 		4CB83CEB238E283F000EB2E7 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB83CAC238E283F000EB2E7 /* BaseViewController.swift */; };
 		4CB83CEC238E283F000EB2E7 /* EmptySegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB83CAD238E283F000EB2E7 /* EmptySegue.swift */; };
 		4CB83CED238E283F000EB2E7 /* MainTapSegmentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB83CAE238E283F000EB2E7 /* MainTapSegmentController.swift */; };
-		4CB83CEE238E283F000EB2E7 /* RealmConnectorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB83CB2238E283F000EB2E7 /* RealmConnectorManager.swift */; };
 		4CB83CEF238E283F000EB2E7 /* ApiProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB83CB5238E283F000EB2E7 /* ApiProvider.swift */; };
 		4CB83CF0238E283F000EB2E7 /* TSAPITargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB83CB7238E283F000EB2E7 /* TSAPITargetType.swift */; };
 		4CB83CF1238E283F000EB2E7 /* TSAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB83CB8238E283F000EB2E7 /* TSAPI.swift */; };
@@ -137,6 +137,7 @@
 		4C563F8D2399FB8C00294057 /* ProfileDetailEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDetailEntity.swift; sourceTree = "<group>"; };
 		4C57A0392397597A0033DCF2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4C57A03C23976CEF0033DCF2 /* DiscoveryEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoveryEntity.swift; sourceTree = "<group>"; };
+		4C5B1FEA23A0DCC90092EBCA /* RealmManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
 		4C7A21872398EA84007BC471 /* AddressEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressEntity.swift; sourceTree = "<group>"; };
 		4C7A21892398EAB4007BC471 /* AddressDetailEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressDetailEntity.swift; sourceTree = "<group>"; };
 		4C7A218D2398FEA1007BC471 /* success.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = success.json; path = Nutritious/Helper/success.json; sourceTree = SOURCE_ROOT; };
@@ -182,7 +183,6 @@
 		4CB83CAC238E283F000EB2E7 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		4CB83CAD238E283F000EB2E7 /* EmptySegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptySegue.swift; sourceTree = "<group>"; };
 		4CB83CAE238E283F000EB2E7 /* MainTapSegmentController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTapSegmentController.swift; sourceTree = "<group>"; };
-		4CB83CB2238E283F000EB2E7 /* RealmConnectorManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmConnectorManager.swift; sourceTree = "<group>"; };
 		4CB83CB5238E283F000EB2E7 /* ApiProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiProvider.swift; sourceTree = "<group>"; };
 		4CB83CB7238E283F000EB2E7 /* TSAPITargetType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSAPITargetType.swift; sourceTree = "<group>"; };
 		4CB83CB8238E283F000EB2E7 /* TSAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSAPI.swift; sourceTree = "<group>"; };
@@ -574,7 +574,7 @@
 		4CB83CB1238E283F000EB2E7 /* LocalPersistence */ = {
 			isa = PBXGroup;
 			children = (
-				4CB83CB2238E283F000EB2E7 /* RealmConnectorManager.swift */,
+				4C5B1FEA23A0DCC90092EBCA /* RealmManager.swift */,
 				4CB83CB3238E283F000EB2E7 /* Gateways */,
 			);
 			path = LocalPersistence;
@@ -1004,7 +1004,6 @@
 				4CEEFF8C2390BE830015A0DD /* MicronutrientsCollectionViewCell.swift in Sources */,
 				4CB83CE8238E283F000EB2E7 /* LoadingHUDControl.swift in Sources */,
 				4CEEFF832390BE830015A0DD /* SetCollectionViewCell.swift in Sources */,
-				4CB83CEE238E283F000EB2E7 /* RealmConnectorManager.swift in Sources */,
 				4CB83CCE238E283F000EB2E7 /* FoodEntity.swift in Sources */,
 				4CB83CEF238E283F000EB2E7 /* ApiProvider.swift in Sources */,
 				4CB83CD6238E283F000EB2E7 /* Observable+ObjectMapper.swift.swift in Sources */,
@@ -1025,6 +1024,7 @@
 				4C7A219723991388007BC471 /* ComplateConfigurator.swift in Sources */,
 				4CEEFF952390BE830015A0DD /* CategoryViewController.swift in Sources */,
 				4CB83CD3238E283F000EB2E7 /* CategoryEntity.swift in Sources */,
+				4C5B1FEB23A0DCC90092EBCA /* RealmManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

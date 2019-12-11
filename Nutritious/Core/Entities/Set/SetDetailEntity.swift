@@ -69,7 +69,7 @@ extension SetDetailEntity {
     class func  getSetInCart()  -> [SetDetailEntity] {
         do {
             let realm = try Realm()
-            return realm.objects(SetDetailEntity.self).toArray(ofType: SetDetailEntity.self)
+            return Array(realm.objects(SetDetailEntity.self)).detached()
         } catch let error as NSError {
             Log.debug(message: error.description)
             return []
@@ -79,9 +79,9 @@ extension SetDetailEntity {
     class func addSetToCart(_ set: SetDetailEntity) {
         do {
             let realm = try Realm()
-            if let set = realm.object(ofType: SetDetailEntity.self, forPrimaryKey: set.id) {
+            if let setExits = realm.object(ofType: SetDetailEntity.self, forPrimaryKey: set.id) {
                 try realm.safeWrite {
-                    set.quantity = set.quantity + 1
+                    setExits.quantity = setExits.quantity + 1
                 }
             }else {
                 try realm.safeWrite {
@@ -98,14 +98,14 @@ extension SetDetailEntity {
     class func removeFoodInCart(_ set: SetDetailEntity) {
         do {
             let realm = try Realm()
-            if let set = realm.object(ofType: SetDetailEntity.self, forPrimaryKey: set.id) {
-                if set.quantity > 1 {
+            if let setExits = realm.object(ofType: SetDetailEntity.self, forPrimaryKey: set.id) {
+                if setExits.quantity > 1 {
                     try realm.write {
-                        set.quantity = set.quantity - 1
+                        setExits.quantity = setExits.quantity - 1
                     }
                 }else {
                     try realm.write {
-                        realm.delete(set)
+                        realm.delete(setExits)
                     }
                 }
                 
@@ -118,8 +118,9 @@ extension SetDetailEntity {
     class func deleteAll(){
         do {
             let realm = try Realm()
-            try realm.write {
-                realm.deleteAll()
+            try realm.safeWrite {
+                let set = realm.objects(SetDetailEntity.self)
+                realm.delete(set)
             }
             
         } catch let error as NSError {
@@ -127,3 +128,4 @@ extension SetDetailEntity {
         }
     }
 }
+// 2 cái này e dùng realm này a

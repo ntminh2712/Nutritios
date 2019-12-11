@@ -1216,10 +1216,12 @@
                     <navigationItem key="navigationItem" id="VzV-3U-Ocb"/>
                     <connections>
                         <outlet property="btnCheckout" destination="e9F-gc-GN0" id="Ncp-ci-WtD"/>
+                        <outlet property="btnDelete" destination="g6M-8r-Fhn" id="nPT-Jy-Sc6"/>
                         <outlet property="lbQuantity" destination="HK5-FO-IF1" id="IZz-Hi-97s"/>
                         <outlet property="tbCart" destination="n12-OO-wyN" id="PG8-Ny-y9C"/>
                         <outlet property="viewBalon" destination="J3U-Na-snR" id="Rmu-7F-C9Y"/>
                         <outlet property="viewCheckout" destination="5zG-pg-7Sn" id="tVT-Au-DOR"/>
+                        <outlet property="viewDelete" destination="Iz1-V0-vgF" id="VLE-Sw-tW0"/>
                         <outlet property="viewHiddenBalon" destination="Sum-HP-BIf" id="jgC-0a-tMe"/>
                     </connections>
                 </viewController>
