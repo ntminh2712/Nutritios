@@ -85,7 +85,28 @@ extension SetDetailEntity {
                 }
             }else {
                 try realm.safeWrite {
-                    realm.add(set)
+                    let object:SetDetailEntity = SetDetailEntity()
+                    object.id = set.id
+                    object.name = set.name
+                    object.image = set.image
+                    object._description = set._description
+                    object.price = set.price
+                    object.carbonhydrates = set.carbonhydrates
+                    object.protein = set.protein
+                    object.lipid = set.lipid
+                    object.xenluloza = set.xenluloza
+                    object.canxi = set.canxi
+                    object.iron = set.iron
+                    object.zinc = set.zinc
+                    object.vitaminA = set.vitaminA
+                    object.vitaminB = set.vitaminB
+                    object.vitaminC = set.vitaminC
+                    object.vitaminD = set.vitaminD
+                    object.vitaminE = set.vitaminE
+                    object.calorie = set.calorie
+                    object.weight = set.weight
+                    object.quantity = set.quantity
+                    realm.add(object,update: .all)
                 }
                 
             }
@@ -95,7 +116,7 @@ extension SetDetailEntity {
         }
     }
     
-    class func removeFoodInCart(_ set: SetDetailEntity) {
+    class func removeSetInCart(_ set: SetDetailEntity) {
         do {
             let realm = try Realm()
             if let setExits = realm.object(ofType: SetDetailEntity.self, forPrimaryKey: set.id) {
@@ -115,17 +136,4 @@ extension SetDetailEntity {
             Log.debug(message: error.description)
         }
     }
-    class func deleteAll(){
-        do {
-            let realm = try Realm()
-            try realm.safeWrite {
-                let set = realm.objects(SetDetailEntity.self)
-                realm.delete(set)
-            }
-            
-        } catch let error as NSError {
-            Log.debug(message: error.description)
-        }
-    }
 }
-// 2 cái này e dùng realm này a

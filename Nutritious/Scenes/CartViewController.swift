@@ -34,6 +34,10 @@ class CartViewController: BaseViewController, CartView,UIGestureRecognizerDelega
         presenter.viewDidLoad()
         setupTableview()
     }
+    
+    deinit {
+        print("11111")
+    }
     override func viewWillAppear(_ animated: Bool) {
         setupView()
     }

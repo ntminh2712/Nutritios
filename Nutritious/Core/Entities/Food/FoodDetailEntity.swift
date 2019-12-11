@@ -77,15 +77,37 @@ extension FoodDetailEntity {
     class func addFoodToCart(_ food: FoodDetailEntity) {
         do {
             let realm = try Realm()
-            if let foodExits = realm.object(ofType: FoodDetailEntity.self, forPrimaryKey: food.id) {
-                try realm.safeWrite {
-                    foodExits.quantity = foodExits.quantity + 1
+                if let foodExits = realm.object(ofType: FoodDetailEntity.self, forPrimaryKey: food.id) {
+                    try realm.write {
+                        foodExits.quantity = foodExits.quantity + 1
+                        realm.add(foodExits, update: .modified)
+                    }
+                }else {
+                    try realm.safeWrite {
+                        let object:FoodDetailEntity = FoodDetailEntity()
+                        object.id = food.id
+                        object.name = food.name
+                        object.image = food.image
+                        object._description = food._description
+                        object.price = food.price
+                        object.carbonhydrates = food.carbonhydrates
+                        object.protein = food.protein
+                        object.lipid = food.lipid
+                        object.xenluloza = food.xenluloza
+                        object.canxi = food.canxi
+                        object.iron = food.iron
+                        object.zinc = food.zinc
+                        object.vitaminA = food.vitaminA
+                        object.vitaminB = food.vitaminB
+                        object.vitaminC = food.vitaminC
+                        object.vitaminD = food.vitaminD
+                        object.vitaminE = food.vitaminE
+                        object.calorie = food.calorie
+                        object.weight = food.weight
+                        object.quantity = food.quantity
+                        realm.add(object,update: .all)
+                    }
                 }
-            }else {
-                try realm.safeWrite {
-                    realm.add(food)
-                }
-            }
             
         } catch let error as NSError {
             Log.debug(message: error.description)
@@ -99,9 +121,11 @@ extension FoodDetailEntity {
                 if foodExits.quantity > 1 {
                     try realm.safeWrite {
                         foodExits.quantity = foodExits.quantity - 1
+                        realm.add(foodExits, update: .modified)
                     }
                 }else {
                     try realm.safeWrite {
+                        
                         realm.delete(foodExits)
                     }
                 }
@@ -116,8 +140,7 @@ extension FoodDetailEntity {
         do {
             let realm = try! Realm()
             try realm.safeWrite {
-                let food = realm.objects(FoodDetailEntity.self)
-                realm.delete(food)
+                realm.deleteAll()
             }
             
         } catch let error as NSError {

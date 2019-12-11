@@ -49,7 +49,9 @@ class CartPresenterImplementation: CartPresenter {
     //MARK: LifeCycle
     
     var handlerQuantityFood:FoodDetailEntity?
+        
     var handlerQuantitySet:SetDetailEntity?
+    
     var numberOfList: Int{
         if listSetInCart.count != 0 && listFoodInCart.count != 0 {
             return 2
@@ -116,7 +118,7 @@ class CartPresenterImplementation: CartPresenter {
     }
     
     func removeSet() {
-        SetDetailEntity.removeFoodInCart(handlerQuantitySet!)
+        SetDetailEntity.removeSetInCart(handlerQuantitySet!)
         handlerQuantitySet?.quantity -= 1
         self.view?.setQuantity(quantity: handlerQuantitySet!.quantity)
         getCart()
@@ -138,7 +140,6 @@ class CartPresenterImplementation: CartPresenter {
     
     func deleteCart() {
         FoodDetailEntity.deleteAll()
-        SetDetailEntity.deleteAll()
     }
     
     func checkout(){
